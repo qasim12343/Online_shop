@@ -1,7 +1,9 @@
-class Category{
-  String? iconPath;
-  String? title;
+import 'package:flutter/cupertino.dart';
 
-  Category(this.title, this.iconPath);
+class Category {
+  IconData iconPath;
+  String title;
+
+  Category(this.iconPath,this.title);
 
 }

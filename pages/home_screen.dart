@@ -1,5 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:shop/data/fake.dart';
+import 'package:shop/widgets/category_card.dart';
 import 'package:shop/widgets/header.dart';
 import 'package:shop/widgets/section.dart';
 
@@ -18,7 +20,14 @@ class _HomeScreenState extends State<HomeScreen> {
         body: Column(
           children: [
             Header(),
-            Section("Categories",[]),
+            Section("Categories",
+                Fake.categories.map((e){
+                  return CategoryCard(title: e.title, iconData: e.iconPath,
+                      onTap: (){
+
+                      });
+                }).toList()
+            ),
           ],
         ),
       ),
