@@ -19,7 +19,7 @@ class Fake{
       backgroundImagePath: 'assets/images/simpleBack.jpg',
       tag: '3 April 2022',
       reversedGradiant: false,
-      imagPath: 'assets/images/laptop.jpg',
+      imagePath: 'assets/images/laptop.jpg',
     ),
     Promotion(title: 'Git voucher gift',
       subtitle: '\$50.00',

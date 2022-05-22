@@ -1,5 +1,5 @@
 class Promotion{
-  String? imagPath;
+  String? imagePath;
   String? title;
   String? backgroundImagePath;
   String? subtitle;
@@ -11,7 +11,7 @@ class Promotion{
     this.title,
     this.backgroundImagePath,
     this.caption,
-    this.imagPath,
+    this.imagePath,
     this.reversedGradiant,
     this.subtitle,
     this.tag,

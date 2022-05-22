@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:shop/data/fake.dart';
 import 'package:shop/widgets/category_card.dart';
 import 'package:shop/widgets/header.dart';
+import 'package:shop/widgets/promotion_card.dart';
 import 'package:shop/widgets/section.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -30,7 +31,10 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
             Section('Today\'s Promo', Fake.promotions.map((e){
               return PromotionCard(
-
+                imagePath: e.imagePath,
+                backgroundImagePath: e.backgroundImagePath!,
+                title: e.title!,
+                subtitle: e.backgroundImagePath!,
               );
             }).toList()),
           ],
