@@ -44,9 +44,12 @@ class Section extends StatelessWidget {
         Container(
           child: SingleChildScrollView(
             scrollDirection: Axis.horizontal,
-            child: Wrap(
-              children: children
-
+            child: Padding(
+              padding: const EdgeInsets.all(28.0),
+              child: Wrap(
+                spacing: 28,
+                children: children
+              ),
             ),
           ),
         ),

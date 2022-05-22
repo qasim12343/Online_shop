@@ -28,6 +28,11 @@ class _HomeScreenState extends State<HomeScreen> {
                       });
                 }).toList()
             ),
+            Section('Today\'s Promo', Fake.promotions.map((e){
+              return PromotionCard(
+
+              );
+            }).toList()),
           ],
         ),
       ),

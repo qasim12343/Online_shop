@@ -34,7 +34,8 @@ class CategoryCard extends StatelessWidget {
                 width: 42,
                 child: Icon(iconData,size: 40,color: Colors.brown),
               ),
-              Text(title , style: TextStyle(fontSize: 16, height: 1.5),),
+              Text(title , style: TextStyle(fontSize: 16, height: 1.5),
+              ),
             ],
           ),
         )
