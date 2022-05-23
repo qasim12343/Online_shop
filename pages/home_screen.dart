@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:shop/data/fake.dart';
+import 'package:shop/widgets/app_bottom_navigation.dart';
 import 'package:shop/widgets/category_card.dart';
 import 'package:shop/widgets/header.dart';
 import 'package:shop/widgets/image_card.dart';
@@ -19,7 +20,7 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-
+        bottomNavigationBar: AppBarBottomNavigation(),
         body: SingleChildScrollView(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
