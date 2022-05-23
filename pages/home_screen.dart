@@ -34,9 +34,14 @@ class _HomeScreenState extends State<HomeScreen> {
                 imagePath: e.imagePath,
                 backgroundImagePath: e.backgroundImagePath!,
                 title: e.title!,
-                subtitle: e.backgroundImagePath!,
+                 subtitle: e.subtitle!,
+                tag: e.tag!,
+                caption: e.caption!,
+                reversedGradiant: e.reversedGradiant,
               );
             }).toList()),
+            Section('Trending Furniture ',[]),
+            Section('Best Sales ', [])
           ],
         ),
       ),

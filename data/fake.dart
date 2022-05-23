@@ -20,12 +20,30 @@ class Fake{
       tag: '3 April 2022',
       reversedGradiant: false,
       imagePath: 'assets/images/laptop.jpg',
+      caption: '',
+
     ),
-    Promotion(title: 'Git voucher gift',
-      subtitle: '\$50.00',
-      backgroundImagePath: 'assets/images/simpleBack2.jpg',
+    Promotion(
+      title: 'Git voucher gift',
+      subtitle: '500000R',
+      backgroundImagePath: 'assets/images/simpleBackground.jpg',
       reversedGradiant: true,
       caption: '*for new member\'s\nof NamaKala',
+      tag: '',
+      imagePath: null,
+
     )
+  ];
+
+  static List<String> trend = [
+    'assets/images/watch.jpg',
+    'assets/images/mobleChair.jpg',
+  ];
+
+  static List<String> bests = [
+    'assets/images/phone.jpg',
+    'assets/images/coat.jpg',
+    'assets/images/boots.jpg',
+    'assets/images/shoes.jpg'
   ];
 }
