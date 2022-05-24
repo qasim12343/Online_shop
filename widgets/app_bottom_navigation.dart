@@ -10,7 +10,7 @@ class AppBarBottomNavigation extends StatefulWidget {
 }
 
 class _AppBarBottomNavigationState extends State<AppBarBottomNavigation> {
-
+  int selectedItem = 0;
   List<dynamic> meneItems = [
     {
     'icon': 'assets/icons/home.svg',
@@ -31,14 +31,31 @@ class _AppBarBottomNavigationState extends State<AppBarBottomNavigation> {
     },
 
   ];
+  void _onTapped(int index){
+    setState(() {
+      selectedItem = index;
+    });
+  }
   @override
   Widget build(BuildContext context) {
-    return BottomNavigationBar(items: meneItems.map((i){
+    return BottomNavigationBar(
+      showUnselectedLabels: true,
+      backgroundColor: Colors.white,
+      unselectedItemColor: Colors.black,
+      elevation: 32,
+      type: BottomNavigationBarType.fixed,
+      
+      items: meneItems.map((i){
       return BottomNavigationBarItem(
-        icon: SvgPicture.asset(i['icon'],width: 30, height: 30,),
+        icon: SvgPicture.asset(i['icon'],width: 20, height: 26,),
         label: i['label'],
         activeIcon: SvgPicture.asset(i['icon'],color: Colors.blue,),
       );
-    }).toList());
+    }).toList(),
+      selectedItemColor: Colors.grey,
+      onTap: _onTapped,
+      currentIndex: 0,
+    );
+
   }
 }

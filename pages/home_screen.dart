@@ -16,6 +16,7 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -30,6 +31,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   Fake.categories.map((e){
                     return CategoryCard(title: e.title, iconData: e.iconPath,
                         onTap: (){
+                          Navigator.pushNamed(context, '/category');
 
                         });
                   }).toList()

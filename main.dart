@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:shop/pages/category_screen.dart';
 import 'package:shop/pages/home_screen.dart';
 
 void main() {
@@ -7,7 +8,6 @@ void main() {
 
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
-
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
@@ -19,8 +19,12 @@ class MyApp extends StatelessWidget {
         visualDensity: VisualDensity.adaptivePlatformDensity,
         primarySwatch: Colors.blue,
       ),
-      home: HomeScreen(),
       debugShowCheckedModeBanner: false,
+      routes: {
+        '/home': (context) => HomeScreen(),
+        '/category' : (context) => CategoryScreen(),
+      },
+      initialRoute: '/home',
     );
   }
 }
