@@ -19,12 +19,12 @@ class MyApp extends StatelessWidget {
         visualDensity: VisualDensity.adaptivePlatformDensity,
         primarySwatch: Colors.blue,
       ),
+      home: HomeScreen(),
       debugShowCheckedModeBanner: false,
       routes: {
         '/home': (context) => HomeScreen(),
         '/category' : (context) => CategoryScreen(),
       },
-      initialRoute: '/home',
     );
   }
 }
