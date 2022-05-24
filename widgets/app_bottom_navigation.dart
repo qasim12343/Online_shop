@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 class AppBarBottomNavigation extends StatefulWidget {
   const AppBarBottomNavigation({Key? key}) : super(key: key);
@@ -12,20 +13,21 @@ class _AppBarBottomNavigationState extends State<AppBarBottomNavigation> {
 
   List<dynamic> meneItems = [
     {
-    'icon': Icon(Icons.home_rounded,color: Colors.black),
+    'icon': 'assets/icons/home.svg',
     'label': 'Home'
     },
     {
-      'icon': Icon(Icons.delivery_dining,color: Colors.black),
+      'icon': 'assets/icons/delivery.svg',
       'label': 'Delivery'
     },
+
     {
-      'icon': Icon(Icons.person_sharp,color: Colors.black),
-      'label': 'Profile'
+      'icon': 'assets/icons/wallet.svg',
+      'label': 'Wallet'
     },
     {
-      'icon': Icon(Icons.account_balance_wallet,color: Colors.black,),
-      'label': 'Wallet'
+      'icon': 'assets/icons/profile (1).svg',
+      'label': 'Profile'
     },
 
   ];
@@ -33,10 +35,9 @@ class _AppBarBottomNavigationState extends State<AppBarBottomNavigation> {
   Widget build(BuildContext context) {
     return BottomNavigationBar(items: meneItems.map((i){
       return BottomNavigationBarItem(
-        icon: i['icon'],
+        icon: SvgPicture.asset(i['icon'],width: 30, height: 30,),
         label: i['label'],
-        activeIcon: i['icon'],
-        backgroundColor: Colors.blue.withOpacity(0.2),
+        activeIcon: SvgPicture.asset(i['icon'],color: Colors.blue,),
       );
     }).toList());
   }
