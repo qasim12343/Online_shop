@@ -26,6 +26,15 @@ class _FilterListState extends State<FilterList> {
       'title' : 'Installment Plan'
     },
   ];
+  toggle(title){
+    if(selected.contains(title))
+      selected.remove(title);
+    else
+      selected.add(title);
+      setState(() {
+        widget.onSelected(selected);
+      });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -33,7 +42,9 @@ class _FilterListState extends State<FilterList> {
       children: options.map((e){
         return FilterListItem(
           icon: e['icon'],
-          onTap: () {  },
+          onTap: () {
+            toggle(e['title']);
+          },
           title: e['title'],
           selected: this.selected.contains(e['title']),
         );
