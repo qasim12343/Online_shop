@@ -3,22 +3,36 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
 class ActionButton extends StatelessWidget {
+  final String iconPath;
+
+  final String title;
+
+  final Function() onTap;
+
+  final bool active;
+
+
   const ActionButton({
-    Key? key,
+    required this.iconPath,
+    required this.title,
+    required this.onTap,
+    Key? key, this.active = false,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: (){},
+      onTap: onTap,
       child: Wrap(
         crossAxisAlignment: WrapCrossAlignment.center,
         spacing: 10,
         children: [
-          SvgPicture.asset('assets/icons/controls.svg',height: 20,width: 20,),
+          SvgPicture.asset(iconPath,height: 20,width: 20,),
           Stack(
             clipBehavior: Clip.none, children: [
-            Text('Filter'),
+            Text(title,
+              style: TextStyle(color: active ? Colors.blue : Colors.black38),
+            ),
             Positioned(
                 top: -3,
                 right: -12,

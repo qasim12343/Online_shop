@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:shop/data/fake.dart';
+import 'package:shop/widgets/vertical_seperator.dart';
 
 import 'action_button.dart';
 import 'cart.dart';
@@ -64,9 +65,24 @@ class _HeaderHState extends State<HeaderH> {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                ActionButton(),
-                VerticalSep(),
-                VerticalSep()
+                ActionButton(title: 'Filter',
+                  iconPath: 'assets/icons/controls.svg',
+                  onTap: (){
+                  },
+                  active: true,
+                ),
+                VerticalSeparator(),
+                ActionButton(title: 'Sort',
+                  iconPath: 'assets/icons/sort.svg',
+                  onTap: (){
+                  },
+                ),
+                VerticalSeparator(),
+                ActionButton(title: 'List',
+                  iconPath: 'assets/icons/list.svg',
+                  onTap: (){
+                  },
+                ),
               ],
             ),
           )
@@ -76,17 +92,4 @@ class _HeaderHState extends State<HeaderH> {
 }
 
 
-class VerticalSep extends StatelessWidget {
-  const VerticalSep({
-    Key? key,
-  }) : super(key: key);
 
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      width: 1,
-      height: 20,
-      color: Colors.grey[600],
-    );
-  }
-}
