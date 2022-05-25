@@ -22,12 +22,13 @@ class MyApp extends StatelessWidget {
       ),
       home: Loading(),
       debugShowCheckedModeBanner: false,
-      // routes: {
-      //   '/': (context) => Loading(),
-      //   '/home': (context) => HomeScreen(),
-      //   '/category' : (context) => CategoryScreen(),
-      // },
-      // initialRoute: '/',
+      initialRoute: '/',
+      routes: {
+        '/': (context) => Loading(),
+        '/home': (context) => HomeScreen(),
+        '/category' : (context) => CategoryScreen(),
+      },
+
     );
   }
 }
