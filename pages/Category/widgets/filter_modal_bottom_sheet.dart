@@ -2,6 +2,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
+import 'filter_list.dart';
+
 class FilterModalBottomSheet extends StatelessWidget {
   const FilterModalBottomSheet({Key? key}) : super(key: key);
 
@@ -42,11 +44,10 @@ class FilterModalBottomSheet extends StatelessWidget {
               ]
             ),
             Padding(
-              padding: const EdgeInsets.only(top: 20),
+              padding: const EdgeInsets.only(top: 20, bottom:  15),
               child: Text('Price Range', style: TextStyle(fontSize: 20),),
             ),
             Container(
-              padding: EdgeInsets.only(top: 15),
               width: double.infinity,
               child: Wrap(
                 crossAxisAlignment: WrapCrossAlignment.center,
@@ -87,12 +88,12 @@ class FilterModalBottomSheet extends StatelessWidget {
               ),
             ),
             Padding(
-              padding: const EdgeInsets.only(top: 20),
+              padding: const EdgeInsets.only(top: 20,),
               child: Text('Filter Items', style: TextStyle(fontSize: 20),),
             ),
             Container(
               child: FilterList(
-                onSelected: (selected) => print(selected);
+                onSelected: (selected) => print(selected),
               ),
             )
 
