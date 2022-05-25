@@ -28,7 +28,7 @@ class Fake{
       subtitle: '500000R',
       backgroundImagePath: 'assets/images/simpleBackground.jpg',
       reversedGradiant: true,
-      caption: '*for new member\'s\nof NamaKala',
+      caption: 'for new member\'s\nof Nama Kala',
       tag: '',
       imagePath: null,
 
