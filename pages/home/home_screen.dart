@@ -2,11 +2,11 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:shop/data/fake.dart';
 import 'package:shop/widgets/app_bottom_navigation.dart';
-import 'package:shop/widgets/category_card.dart';
-import 'package:shop/widgets/header.dart';
-import 'package:shop/widgets/image_card.dart';
-import 'package:shop/widgets/promotion_card.dart';
-import 'package:shop/widgets/section.dart';
+import 'package:shop/pages/home/widgets/category_card.dart';
+import 'package:shop/pages/home/widgets/header.dart';
+import 'package:shop/pages/home/widgets/image_card.dart';
+import 'package:shop/pages/home/widgets/promotion_card.dart';
+import 'package:shop/pages/home/widgets/section.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);

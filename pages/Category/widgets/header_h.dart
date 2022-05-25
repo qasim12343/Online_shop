@@ -2,10 +2,10 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:shop/data/fake.dart';
-import 'package:shop/widgets/vertical_seperator.dart';
+import 'package:shop/pages/Category/widgets/vertical_seperator.dart';
 
 import 'action_button.dart';
-import 'cart.dart';
+import '../../../widgets/cart.dart';
 
 class HeaderH extends StatefulWidget {
   const HeaderH({Key? key}) : super(key: key);
@@ -68,6 +68,7 @@ class _HeaderHState extends State<HeaderH> {
                 ActionButton(title: 'Filter',
                   iconPath: 'assets/icons/controls.svg',
                   onTap: (){
+                    _settingModelBottomSheet(context);
                   },
                   active: true,
                 ),
@@ -75,12 +76,14 @@ class _HeaderHState extends State<HeaderH> {
                 ActionButton(title: 'Sort',
                   iconPath: 'assets/icons/sort.svg',
                   onTap: (){
+                    _settingModelBottomSheet(context);
                   },
                 ),
                 VerticalSeparator(),
                 ActionButton(title: 'List',
                   iconPath: 'assets/icons/list.svg',
                   onTap: (){
+                    _settingModelBottomSheet(context);
                   },
                 ),
               ],
@@ -89,6 +92,22 @@ class _HeaderHState extends State<HeaderH> {
       ],),
     );
   }
+}
+
+void _settingModelBottomSheet(context){
+  showModalBottomSheet(
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.only(
+            topLeft: Radius.circular(9),
+            topRight: Radius.circular(9),
+        )
+      ),
+      context: context,
+      builder: (BuildContext bc){
+        return FilterModalBottomSheet(
+        );
+      }
+    );
 }
 
 

@@ -1,9 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:shop/data/fake.dart';
-import 'package:shop/widgets/search_bar.dart';
+import 'package:shop/pages/home/widgets/search_bar.dart';
 
-import 'cart.dart';
+import '../../../widgets/cart.dart';
 
 class Header extends StatelessWidget {
   const Header({Key? key}) : super(key: key);

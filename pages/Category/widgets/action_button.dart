@@ -33,6 +33,7 @@ class ActionButton extends StatelessWidget {
             Text(title,
               style: TextStyle(color: active ? Colors.blue : Colors.black38),
             ),
+            if(active)
             Positioned(
                 top: -3,
                 right: -12,

@@ -23,7 +23,7 @@ class Cart extends StatelessWidget {
           child: Container(
             alignment: Alignment.center,
             decoration: BoxDecoration(
-                color: Colors.grey,
+                color: Colors.red,
                 shape: BoxShape.circle,
                 border: Border.all(
                   color: Colors.white,

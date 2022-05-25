@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:shop/widgets/app_bottom_navigation.dart';
-import 'package:shop/widgets/header_sliver.dart';
+import 'package:shop/pages/Category/widgets/header_sliver.dart';
 
 class CategoryScreen extends StatefulWidget {
   const CategoryScreen({Key? key}) : super(key: key);
