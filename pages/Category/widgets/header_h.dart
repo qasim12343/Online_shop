@@ -6,6 +6,7 @@ import 'package:shop/pages/Category/widgets/vertical_seperator.dart';
 
 import 'action_button.dart';
 import '../../../widgets/cart.dart';
+import 'filter_modal_bottom_sheet.dart';
 
 class HeaderH extends StatefulWidget {
   const HeaderH({Key? key}) : super(key: key);
@@ -25,6 +26,7 @@ class _HeaderHState extends State<HeaderH> {
         ]
       ),
       child: Column(
+        mainAxisSize: MainAxisSize.min,
         children: [
         Padding(
           padding: const EdgeInsets.symmetric(vertical: 15, horizontal: 28),
