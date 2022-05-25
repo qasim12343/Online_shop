@@ -18,7 +18,7 @@ class _FilterListState extends State<FilterList> {
       'title' : 'Discount'
     },
     {
-      'icon' : SvgPicture.asset('assets/icons/delivery.svg'),
+      'icon' : SvgPicture.asset('assets/icons/delivery.svg',height: 24,  width: 24,),
       'title' : 'Free Delivery'
     },
     {
@@ -27,10 +27,11 @@ class _FilterListState extends State<FilterList> {
     },
   ];
   toggle(title){
-    if(selected.contains(title))
+    if(selected.contains(title)) {
       selected.remove(title);
-    else
+    } else {
       selected.add(title);
+    }
       setState(() {
         widget.onSelected(selected);
       });
@@ -46,7 +47,7 @@ class _FilterListState extends State<FilterList> {
             toggle(e['title']);
           },
           title: e['title'],
-          selected: this.selected.contains(e['title']),
+          selected: selected.contains(e['title']),
         );
       }).toList(),
     );
@@ -69,6 +70,15 @@ class FilterListItem extends StatelessWidget {
     return InkWell(
       onTap: onTap,
       child: Container(
+        padding: EdgeInsets.symmetric(vertical: 10),
+        decoration: BoxDecoration(
+          border: Border(
+            bottom: BorderSide(
+              color: Colors.black26,
+              width: 1
+            )
+          )
+        ),
         child: Row(
           children: [
             icon,

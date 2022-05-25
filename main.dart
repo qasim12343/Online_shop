@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:shop/pages/Category/category_screen.dart';
 import 'package:shop/pages/home/home_screen.dart';
+import 'package:shop/pages/loading.dart';
 
 void main() {
   runApp(const MyApp());
@@ -19,12 +20,14 @@ class MyApp extends StatelessWidget {
         visualDensity: VisualDensity.adaptivePlatformDensity,
         primarySwatch: Colors.blue,
       ),
-      home: HomeScreen(),
+      home: Loading(),
       debugShowCheckedModeBanner: false,
-      routes: {
-        '/home': (context) => HomeScreen(),
-        '/category' : (context) => CategoryScreen(),
-      },
+      // routes: {
+      //   '/': (context) => Loading(),
+      //   '/home': (context) => HomeScreen(),
+      //   '/category' : (context) => CategoryScreen(),
+      // },
+      // initialRoute: '/',
     );
   }
 }

@@ -23,7 +23,6 @@ class _CategoryScreenState extends State<CategoryScreen> {
               pinned: true,
               floating: true,
                 delegate: HeaderSliver(maxExtent: 120, minExtent: 120),
-          //
             )
           ],
         ),
