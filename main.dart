@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:shop/loginPage/login_page.dart';
 import 'package:shop/pages/Category/category_screen.dart';
 import 'package:shop/pages/home/home_screen.dart';
 import 'package:shop/pages/loading.dart';
@@ -20,14 +21,14 @@ class MyApp extends StatelessWidget {
         visualDensity: VisualDensity.adaptivePlatformDensity,
         primarySwatch: Colors.blue,
       ),
-      home: Loading(),
+      home: LoginPage(),
       debugShowCheckedModeBanner: false,
-      initialRoute: '/',
-      routes: {
-        '/': (context) => Loading(),
-        '/home': (context) => HomeScreen(),
-        '/category' : (context) => CategoryScreen(),
-      },
+
+      // routes: {
+      //   '/': (context) => Loading(),
+      //   '/home': (context) => HomeScreen(),
+      //   '/category' : (context) => CategoryScreen(),
+      // },
 
     );
   }
