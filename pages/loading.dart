@@ -1,6 +1,9 @@
+import 'dart:async';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
+import 'package:shop/loginPage/login_page.dart';
 
 class Loading extends StatefulWidget {
   const Loading({Key? key}) : super(key: key);
@@ -10,16 +13,17 @@ class Loading extends StatefulWidget {
 }
 
 class _LoadingState extends State<Loading> {
-  void getData() async{
-    await Future.delayed(Duration(seconds: 10));
-    Navigator.pushNamed(context, '/home');
+
+
+   _LoadingState(){
+    new Timer(const Duration(milliseconds: 2000), (){
+      setState(() {
+        Navigator.of(context).pushAndRemoveUntil(
+            MaterialPageRoute(builder: (context) => LoginPage()), (route) => false);
+      });
+    });
   }
 
-  @override
-  void initState() {
-    super.initState();
-    getData();
-  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(

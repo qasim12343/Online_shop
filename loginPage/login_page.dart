@@ -9,11 +9,9 @@ class LoginPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: _title,
-      home: Scaffold(
+    return  Scaffold(
+        backgroundColor: Colors.grey,
         body: const MyStatefulWidget(),
-      ),
     );
   }
 }
@@ -38,12 +36,20 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
             Container(
                 alignment: Alignment.center,
                 padding: const EdgeInsets.all(10),
-                child: const Text(
-                  'NamaKala',
-                  style: TextStyle(
-                      color: Colors.blue,
-                      fontWeight: FontWeight.w500,
-                      fontSize: 30),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    const Text(
+                      'NamaKala',
+                      style: TextStyle(
+                          color: Colors.red,
+                          fontWeight: FontWeight.w500,
+                          fontSize: 30),
+                    ),
+                    Container(
+                        padding: EdgeInsets.only(top: 20),
+                        child: Text('نماکالا',style: TextStyle(color: Colors.white,fontSize: 20),))
+                  ],
                 )),
             SizedBox(height: 40,),
             Container(
@@ -97,6 +103,10 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
                 child: ElevatedButton(
                   child: const Text('Login'),
                   onPressed: () {
+                    Navigator.pushNamed(context, '/home');
+                    setState(() {
+
+                    });
                   },
                 )
             ),

@@ -20,7 +20,17 @@ class Header extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Text("Nama Kala", style: TextStyle(fontSize: 28),),
+              Row(children: [
+                Text("NamaKala", style: TextStyle(fontSize: 28),),
+                Container(
+                  padding: EdgeInsets.only(top: 10),
+                  child: Text("نماکالا",style: TextStyle(
+                      fontSize: 20
+                  ),),
+                ),
+              ],
+              ),
+
               SizedBox(width: 10,),
               Cart(numberOfItemsInCart: Fake.numberOfItemsInCart),
             ],

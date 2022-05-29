@@ -21,7 +21,8 @@ class MyApp extends StatelessWidget {
         visualDensity: VisualDensity.adaptivePlatformDensity,
         primarySwatch: Colors.blue,
       ),
-      home: LoginPage(),
+      home: HomeScreen(),
+      // initialRoute: '/home',
       debugShowCheckedModeBanner: false,
 
       // routes: {
