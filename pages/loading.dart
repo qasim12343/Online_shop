@@ -3,7 +3,8 @@ import 'dart:async';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
-import 'package:shop/loginPage/login_page.dart';
+
+import 'loginPage/login_page.dart';
 
 class Loading extends StatefulWidget {
   const Loading({Key? key}) : super(key: key);
