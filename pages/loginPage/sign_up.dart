@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:shop/pages/loginPage/widget/theme.dart';
 
 void main(){
   runApp(MaterialApp(
@@ -74,9 +75,69 @@ class _SignUp extends State<SignUp>{
                             ],
                           ),
                         ),
+                        SizedBox(height: 30,),
+                        Container(
+                          child: TextFormField(
+                            decoration: Them().textInputDecoration('First Name', 'Enter your first name'),
+                          ),
+                          // decoration: Them().inputBoxDecorationShaddow(),
+                        ),
+                        SizedBox(height: 30,),
+                        Container(
+                          child: TextFormField(
+                            decoration: Them().textInputDecoration('Last Name', 'Enter your last name'),
+                          ),
+                          decoration: Them().inputBoxDecorationShaddow(),
+                        ),
+                        SizedBox(height: 20.0),
+                        Container(
+                          child: TextFormField(
+                            decoration: Them().textInputDecoration("E-mail address", "Enter your email"),
+                            keyboardType: TextInputType.emailAddress,
+                            validator: (val) {
+                              if(!(val!.isEmpty) && !RegExp(r"^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,253}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,253}[a-zA-Z0-9])?)*$").hasMatch(val)){
+                                return "Enter a valid email address";
+                              }
+                              return null;
+                            },
+                          ),
+                          decoration: Them().inputBoxDecorationShaddow(),
+                        ),
+                        SizedBox(height: 20.0),
+                        Container(
+                          child: TextFormField(
+                            decoration: Them().textInputDecoration(
+                                "Mobile Number",
+                                "Enter your mobile number"),
+                            keyboardType: TextInputType.phone,
+                            validator: (val) {
+                              if(!(val!.isEmpty) && !RegExp(r"^((\+98)|(0098)|(0))[0-9]{10}").hasMatch(val)){
+                                return "Enter a valid phone number";
+                              }
+                              return null;
+                            },
+                          ),
+                          decoration: Them().inputBoxDecorationShaddow(),
+                        ),
+                        SizedBox(height: 20),
+                        Container(
+                          child: TextFormField(
+                            obscureText: true,
+                            decoration: Them().textInputDecoration(
+                                "Password*", "Enter your password"),
+                            validator: (val) {
+                              if (val!.isEmpty) {
+                                return "Please enter your password";
+                              }
+                              return null;
+                            },
+                          ),
+                          decoration: Them().inputBoxDecorationShaddow(),
+                        ),
+                        SizedBox(height: 25),
                       ],
-                    ),),
-
+                    ),
+                  ),
                 ],
               )
             )
