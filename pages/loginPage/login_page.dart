@@ -1,6 +1,7 @@
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:shop/pages/loginPage/sign_up.dart';
 import 'package:shop/pages/loginPage/widget/theme.dart';
 
 class LoginPage extends StatelessWidget {
@@ -118,7 +119,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
                     style: TextStyle(fontSize: 20),
                   ),
                   onPressed: () {
-                    //signup screen
+                    Navigator.of(context).push(MaterialPageRoute(builder: (context) => SignUp()));
                   },
                 )
               ],

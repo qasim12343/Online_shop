@@ -1,5 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:hexcolor/hexcolor.dart';
 import 'package:shop/pages/loginPage/widget/theme.dart';
 
 void main(){
@@ -120,23 +122,127 @@ class _SignUp extends State<SignUp>{
                           decoration: Them().inputBoxDecorationShaddow(),
                         ),
                         SizedBox(height: 20),
-                        Container(
-                          child: TextFormField(
-                            obscureText: true,
-                            decoration: Them().textInputDecoration(
-                                "Password*", "Enter your password"),
-                            validator: (val) {
-                              if (val!.isEmpty) {
-                                return "Please enter your password";
-                              }
-                              return null;
-                            },
-                          ),
-                          decoration: Them().inputBoxDecorationShaddow(),
+                        Builder(
+                          builder: (context) {
+                            return Row(
+                              children: [
+                                Container(
+                                  child: TextFormField(
+                                    obscureText: true,
+                                    decoration: Them().textInputDecoration(
+                                        "Password*", "Enter your password"),
+                                    validator: (val) {
+                                      if (val!.isEmpty) {
+                                        return "Please enter your password";
+                                      }
+                                      return null;
+                                    },
+                                  ),
+                                  decoration: Them().inputBoxDecorationShaddow(),
+                                ),
+                                // Checkbox(value: this.checkboxValue, onChanged: (bool value){
+                                //   setState(() {
+                                //     this.chekboxValue = value
+                                //   });
+                                // });
+                              ],
+                            );
+                          }
                         ),
                         SizedBox(height: 25),
                       ],
                     ),
+                  ),Container(
+                    decoration: Them().buttonBoxDecoration(context),
+                    child: ElevatedButton(
+                      style: Them().buttonStyle(),
+                      child: Padding(
+                        padding: const EdgeInsets.fromLTRB(40, 10, 40, 10),
+                        child: Text(
+                          "Register".toUpperCase(),
+                          style: TextStyle(
+                            fontSize: 20,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.white,
+                          ),
+                        ),
+                      ),
+                      onPressed: () {
+                        if (_formKey.currentState!.validate()) {
+                          // Navigator.of(context).pushAndRemoveUntil(
+                          //     MaterialPageRoute(
+                          //         builder: (context) => ProfilePage()
+                          //     ),
+                          //         (Route<dynamic> route) => false
+                          // );
+                        }
+                      },
+                    ),
+                  ),
+                  SizedBox(height: 30.0),
+                  Text("Or create account using social media",  style: TextStyle(color: Colors.grey),),
+                  SizedBox(height: 25.0),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      GestureDetector(
+                        child: FaIcon(
+                          FontAwesomeIcons.googlePlus, size: 35,
+                          color: HexColor("#EC2D2F"),),
+                        onTap: () {
+                          setState(() {
+                            showDialog(
+                              context: context,
+                              builder: (BuildContext context) {
+                                return Them().alertDialog("Google Plus","You tap on GooglePlus social icon.",context);
+                              },
+                            );
+                          });
+                        },
+                      ),
+                      SizedBox(width: 30.0,),
+                      GestureDetector(
+                        child: Container(
+                          padding: EdgeInsets.all(0),
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(100),
+                            border: Border.all(width: 5, color: Colors.black12),
+                            color: Colors.white,
+                          ),
+                          child: FaIcon(
+                            FontAwesomeIcons.twitter, size: 23,
+                            color: Colors.blue,),
+                        ),
+                        onTap: () {
+                          setState(() {
+                            showDialog(
+                              context: context,
+                              builder: (BuildContext context) {
+                                return Them().alertDialog("Twitter","You tap on Twitter social icon.",context);
+                              },
+                            );
+                          });
+                        },
+                      ),
+                      SizedBox(width: 30.0,),
+                      GestureDetector(
+                        child: FaIcon(
+                          FontAwesomeIcons.facebook, size: 35,
+                          color: Colors.blue[700],),
+                        onTap: () {
+                          setState(() {
+                            showDialog(
+                              context: context,
+                              builder: (BuildContext context) {
+                                return Them().alertDialog("Facebook",
+                                    "You tap on Facebook social icon.",
+                                    context);
+                              },
+                            );
+                          });
+                        },
+                      ),
+                    ],
                   ),
                 ],
               )
