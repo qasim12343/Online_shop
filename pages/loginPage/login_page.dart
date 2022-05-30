@@ -11,7 +11,6 @@ class LoginPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return  Scaffold(
-        backgroundColor: Colors.grey,
         body: const MyStatefulWidget(),
     );
   }
@@ -99,7 +98,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
                 height: 50,
                 padding: const EdgeInsets.fromLTRB(10, 0, 10, 0),
                 child: ElevatedButton(
-                  child: const Text('Login'),
+                  child: const Text('Login',style: TextStyle(color: Colors.blue),),
                   onPressed: () {
                     Navigator.pushNamed(context, '/home');
                     setState(() {
@@ -115,7 +114,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
                 const Text('Does not have account?'),
                 TextButton(
                   child: const Text(
-                    'Sign in',
+                    'Sign up',
                     style: TextStyle(fontSize: 20),
                   ),
                   onPressed: () {
