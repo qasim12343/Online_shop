@@ -1,13 +1,13 @@
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:shop/data/fake.dart';
+import 'package:shop/data/fake.dart';
 import 'package:shop/pages/loginPage/sign_up.dart';
 import 'package:shop/pages/loginPage/widget/theme.dart';
 
 class LoginPage extends StatelessWidget {
   const LoginPage({Key? key}) : super(key: key);
-
-  static const String _title = 'Login page';
 
   @override
   Widget build(BuildContext context) {
@@ -71,7 +71,6 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
                   'Sign in',
                   style: TextStyle(fontSize: 20),
                 ),
-              decoration: Them().inputBoxDecorationShaddow(),
             ),
             Container(
               padding: const EdgeInsets.all(10),
@@ -101,14 +100,19 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
                 child: ElevatedButton(
                   child: const Text('Login',style: TextStyle(color: Colors.blue),),
                   onPressed: () {
-                    Navigator.pushNamed(context, '/home');
+                    for(int i = 0; i< Fake.users.length; i++){
+                      if(Fake.users[i].firstName+' '+Fake.users[i].lastName == nameController.toString() &&
+                      Fake.users[i].password == passwordController.toString()){
+                      Navigator.pushNamed(context, '/home');
+                      }
+                    };
+                    Them().alertDialog("Invalid", "Enter again", context);
                     setState(() {
 
                     });
                   },
                   style: Them().buttonStyle(),
                 ),
-              decoration: Them().inputBoxDecorationShaddow(),
             ),
             Row(
               children: <Widget>[
@@ -119,6 +123,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
                     style: TextStyle(fontSize: 20),
                   ),
                   onPressed: () {
+
                     Navigator.of(context).push(MaterialPageRoute(builder: (context) => SignUp()));
                   },
                 )

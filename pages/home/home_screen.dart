@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:shop/data/fake.dart';
+import 'package:shop/pages/Category/category_screen.dart';
 import 'package:shop/widgets/app_bottom_navigation.dart';
 import 'package:shop/pages/home/widgets/category_card.dart';
 import 'package:shop/pages/home/widgets/header.dart';
@@ -31,7 +32,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   Fake.categories.map((e){
                     return CategoryCard(title: e.title, iconData: e.iconPath,
                         onTap: (){
-                          Navigator.pushNamed(context, '/category');
+                          Navigator.push(context, MaterialPageRoute(builder: (context)=> CategoryScreen() ));
 
                         });
                   }).toList()

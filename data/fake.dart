@@ -6,6 +6,8 @@ import 'package:shop/models/promotion.dart';
 
 class Fake{
   static int numberOfItemsInCart = 1;
+  static List<User> users = [];
+
 
   static List <Category> categories = [
   Category(Icons.phonelink_rounded ,  'Digital'),
@@ -46,4 +48,14 @@ class Fake{
     'assets/images/boots.jpg',
     'assets/images/shoes.jpg'
   ];
+}
+class User{
+  String firstName = "";
+  String lastName = "";
+  String password = "";
+  String email = "";
+  String phoneNumber = "";
+
+  User({required this.firstName,lastName,required this.password, required this.email, required this.phoneNumber});
+
 }

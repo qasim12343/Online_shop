@@ -24,11 +24,11 @@ class MyApp extends StatelessWidget {
       // initialRoute: '/home',
       debugShowCheckedModeBanner: false,
 
-      // routes: {
-      //   '/': (context) => Loading(),
-      //   '/home': (context) => HomeScreen(),
-      //   '/category' : (context) => CategoryScreen(),
-      // },
+      routes: {
+        '/': (context) => Loading(),
+        '/home': (context) => HomeScreen(),
+        '/category' : (context) => CategoryScreen(),
+      },
 
     );
   }

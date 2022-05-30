@@ -1,7 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:hexcolor/hexcolor.dart';
+import 'package:shop/data/fake.dart';
+import 'package:shop/pages/home/home_screen.dart';
 import 'package:shop/pages/loginPage/widget/theme.dart';
 
 void main(){
@@ -20,9 +21,13 @@ class SignUp extends  StatefulWidget{
 
 
 class _SignUp extends State<SignUp>{
+  TextEditingController fistName = TextEditingController();
+  TextEditingController lastName = TextEditingController();
+  TextEditingController email = TextEditingController();
+  TextEditingController password = TextEditingController();
+  TextEditingController phoneNumber = TextEditingController();
 
   final _formKey = GlobalKey<FormState>();
-  bool checkedValue = false;
   bool checkboxValue = false;
 
   @override
@@ -80,20 +85,21 @@ class _SignUp extends State<SignUp>{
                         SizedBox(height: 30,),
                         Container(
                           child: TextFormField(
+                            controller: fistName,
                             decoration: Them().textInputDecoration('First Name', 'Enter your first name'),
                           ),
-                          // decoration: Them().inputBoxDecorationShaddow(),
                         ),
                         SizedBox(height: 30,),
                         Container(
                           child: TextFormField(
+                            controller: lastName,
                             decoration: Them().textInputDecoration('Last Name', 'Enter your last name'),
                           ),
-                          decoration: Them().inputBoxDecorationShaddow(),
                         ),
                         SizedBox(height: 20.0),
                         Container(
                           child: TextFormField(
+                            controller: email,
                             decoration: Them().textInputDecoration("E-mail address", "Enter your email"),
                             keyboardType: TextInputType.emailAddress,
                             validator: (val) {
@@ -103,11 +109,11 @@ class _SignUp extends State<SignUp>{
                               return null;
                             },
                           ),
-                          decoration: Them().inputBoxDecorationShaddow(),
                         ),
                         SizedBox(height: 20.0),
                         Container(
                           child: TextFormField(
+                            controller: phoneNumber,
                             decoration: Them().textInputDecoration(
                                 "Mobile Number",
                                 "Enter your mobile number"),
@@ -119,16 +125,15 @@ class _SignUp extends State<SignUp>{
                               return null;
                             },
                           ),
-                          decoration: Them().inputBoxDecorationShaddow(),
                         ),
                         SizedBox(height: 20),
                         Builder(
                           builder: (context) {
-                            return Row(
-                              children: [
+                            return
                                 Container(
                                   child: TextFormField(
-                                    obscureText: true,
+                                    controller: this.password,
+                                    obscureText: !checkboxValue,
                                     decoration: Them().textInputDecoration(
                                         "Password*", "Enter your password"),
                                     validator: (val) {
@@ -138,16 +143,26 @@ class _SignUp extends State<SignUp>{
                                       return null;
                                     },
                                   ),
-                                  decoration: Them().inputBoxDecorationShaddow(),
-                                ),
-                                // Checkbox(value: this.checkboxValue, onChanged: (bool value){
-                                //   setState(() {
-                                //     this.chekboxValue = value
-                                //   });
-                                // });
-                              ],
-                            );
+                                );
+
                           }
+                        ),
+                        SizedBox(height: 25),
+                        Container(
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Text("Visible password"),
+                              Checkbox(
+                                  value: this.checkboxValue,
+                                  onChanged: (bool? value) {
+                                    setState(() {
+                                      this.checkboxValue = value??false;
+                                    });
+                                  }
+                              ),
+                            ],
+                          ),
                         ),
                         SizedBox(height: 25),
                       ],
@@ -168,13 +183,25 @@ class _SignUp extends State<SignUp>{
                         ),
                       ),
                       onPressed: () {
+                        setState(() {
+                          User user = User(
+                            firstName : fistName.toString(),
+                            lastName : lastName.toString(),
+                            email : email.toString(),
+                            password : password.toString(),
+                            phoneNumber : phoneNumber.toString(),
+                          );
+                          if(!Fake.users.contains(user)){
+                            Fake.users.add(user);
+                          }
+                        });
                         if (_formKey.currentState!.validate()) {
-                          // Navigator.of(context).pushAndRemoveUntil(
-                          //     MaterialPageRoute(
-                          //         builder: (context) => ProfilePage()
-                          //     ),
-                          //         (Route<dynamic> route) => false
-                          // );
+                          Navigator.of(context).pushAndRemoveUntil(
+                              MaterialPageRoute(
+                                  builder: (context) => HomeScreen()
+                              ),
+                                  (Route<dynamic> route) => false
+                          );
                         }
                       },
                     ),
@@ -188,7 +215,7 @@ class _SignUp extends State<SignUp>{
                       GestureDetector(
                         child: FaIcon(
                           FontAwesomeIcons.googlePlus, size: 35,
-                          color: HexColor("#EC2D2F"),),
+                          color: Colors.red,),
                         onTap: () {
                           setState(() {
                             showDialog(
