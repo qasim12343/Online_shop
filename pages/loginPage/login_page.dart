@@ -1,6 +1,7 @@
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:shop/pages/loginPage/widget/theme.dart';
 
 class LoginPage extends StatelessWidget {
   const LoginPage({Key? key}) : super(key: key);
@@ -69,15 +70,14 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
                 child: const Text(
                   'Sign in',
                   style: TextStyle(fontSize: 20),
-                )),
+                ),
+              decoration: Them().inputBoxDecorationShaddow(),
+            ),
             Container(
               padding: const EdgeInsets.all(10),
               child: TextField(
                 controller: nameController,
-                decoration: const InputDecoration(
-                  border: OutlineInputBorder(),
-                  labelText: 'User Name',
-                ),
+                decoration: Them().textInputDecoration("Username","Enter your username")
               ),
             ),
             Container(
@@ -85,10 +85,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
               child: TextField(
                 obscureText: true,
                 controller: passwordController,
-                decoration: const InputDecoration(
-                  border: OutlineInputBorder(),
-                  labelText: 'Password',
-                ),
+                decoration: Them().textInputDecoration("Password", "Enter your password")
               ),
             ),
             TextButton(
@@ -96,6 +93,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
                 //forgot password screen
               },
               child: const Text('Forgot Password',),
+              style: Them().buttonStyle(),
             ),
             Container(
                 height: 50,
@@ -108,7 +106,9 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
 
                     });
                   },
-                )
+                  style: Them().buttonStyle(),
+                ),
+              decoration: Them().inputBoxDecorationShaddow(),
             ),
             Row(
               children: <Widget>[
