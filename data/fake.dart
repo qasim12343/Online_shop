@@ -6,7 +6,20 @@ import 'package:shop/models/promotion.dart';
 
 class Fake{
   static int numberOfItemsInCart = 1;
-  static List<User> users = [];
+  List<User> _users = [User(
+  firstName : "Qasem",
+  lastName : "Yusof",
+  email : "qasem.yousifi20@gmail.com",
+  password : "asdfgh",
+  phoneNumber : "09926067529",
+  )];
+
+  void addUser(User user){
+    _users.add(user);
+  }
+  List<User> getUsers(){
+    return _users;
+  }
 
 
   static List <Category> categories = [
@@ -58,4 +71,21 @@ class User{
 
   User({required this.firstName,lastName,required this.password, required this.email, required this.phoneNumber});
 
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is User &&
+          runtimeType == other.runtimeType &&
+          firstName == other.firstName &&
+          lastName == other.lastName &&
+          password == other.password;
+
+  @override
+  int get hashCode =>
+      firstName.hashCode ^ lastName.hashCode ^ password.hashCode;
+
+  @override
+  String toString() {
+    return 'firstName: $firstName $lastName, password: $password';
+  }
 }

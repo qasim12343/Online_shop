@@ -27,6 +27,7 @@ class MyStatefulWidget extends StatefulWidget {
 class _MyStatefulWidgetState extends State<MyStatefulWidget> {
   TextEditingController nameController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
+  Fake fake = Fake();
 
   @override
   Widget build(BuildContext context) {
@@ -100,15 +101,19 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
                 child: ElevatedButton(
                   child: const Text('Login',style: TextStyle(color: Colors.blue),),
                   onPressed: () {
-                    for(int i = 0; i< Fake.users.length; i++){
-                      if(Fake.users[i].firstName+' '+Fake.users[i].lastName == nameController.toString() &&
-                      Fake.users[i].password == passwordController.toString()){
+                    for(int i = 0; i< fake.getUsers().length; i++){
+                      if(fake.getUsers()[i].firstName+" "+fake.getUsers()[i].lastName == nameController.toString() &&
+                      fake.getUsers()[i].password == passwordController.toString()){
                       Navigator.pushNamed(context, '/home');
                       }
                     };
-                    Them().alertDialog("Invalid", "Enter again", context);
                     setState(() {
-
+                      showDialog(
+                        context: context,
+                        builder: (BuildContext context) {
+                          return Them().alertDialog("Google Plus","You tap on GooglePlus social icon.",context);
+                        },
+                      );
                     });
                   },
                   style: Them().buttonStyle(),

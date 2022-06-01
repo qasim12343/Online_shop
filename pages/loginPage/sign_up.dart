@@ -27,6 +27,8 @@ class _SignUp extends State<SignUp>{
   TextEditingController password = TextEditingController();
   TextEditingController phoneNumber = TextEditingController();
 
+  Fake fake =  Fake();
+
   final _formKey = GlobalKey<FormState>();
   bool checkboxValue = false;
 
@@ -185,15 +187,16 @@ class _SignUp extends State<SignUp>{
                       onPressed: () {
                         setState(() {
                           User user = User(
-                            firstName : fistName.toString(),
-                            lastName : lastName.toString(),
-                            email : email.toString(),
-                            password : password.toString(),
-                            phoneNumber : phoneNumber.toString(),
+                            firstName : fistName.value.text,
+                            lastName : lastName.value.text,
+                            email : email.value.text,
+                            password : password.value.text,
+                            phoneNumber : phoneNumber.value.text,
                           );
-                          if(!Fake.users.contains(user)){
-                            Fake.users.add(user);
+                          if(!fake.getUsers().contains(user)){
+                            fake.addUser(user);
                           }
+
                         });
                         if (_formKey.currentState!.validate()) {
                           Navigator.of(context).pushAndRemoveUntil(

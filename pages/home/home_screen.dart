@@ -17,6 +17,7 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  Fake fake = Fake();
 
   @override
   Widget build(BuildContext context) {
