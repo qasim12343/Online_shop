@@ -7,8 +7,9 @@ import 'package:shop/widgets/app_bottom_navigation.dart';
 import 'package:shop/data/data.dart';
 
 class ListScreen extends StatefulWidget {
+  String title;
   List<Item> items;
-  ListScreen({Key? key, required this.items}) : super(key: key);
+  ListScreen({Key? key, required this.items, required this.title}) : super(key: key);
 
   @override
   _ListScreenState createState() => _ListScreenState();
@@ -26,7 +27,7 @@ class _ListScreenState extends State<ListScreen> {
             SliverPersistentHeader(
               pinned: true,
               floating: true,
-                delegate: HeaderSliver(maxExtent: 120, minExtent: 120),
+                delegate: HeaderSliver(maxExtent: 120, minExtent: 120, title: widget.title),
             ),
             SliverGrid.count(crossAxisCount: 2,
               childAspectRatio: 0.65,

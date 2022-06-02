@@ -37,29 +37,29 @@ class _AppBarBottomNavigationState extends State<AppBarBottomNavigation> {
   ];
   void _onTapped(int index){
     setState(() {
-      Navigator.pushNamed(context, meneItems[index]['page']);
       selectedItem = index;
+      Navigator.pushNamed(context, meneItems[index]['page']);
     });
   }
   @override
   Widget build(BuildContext context) {
     return BottomNavigationBar(
-      showUnselectedLabels: true,
-      backgroundColor: Colors.white,
+      backgroundColor: Colors.blue[200],
       unselectedItemColor: Colors.black,
       elevation: 32,
       type: BottomNavigationBarType.fixed,
-      
+      currentIndex: selectedItem,
+      selectedItemColor: Colors.white,
+      onTap: _onTapped,
+
       items: meneItems.map((i){
       return BottomNavigationBarItem(
         icon: SvgPicture.asset(i['icon'],width: 20, height: 26,),
         label: i['label'],
-        activeIcon: SvgPicture.asset(i['icon'],color: Colors.blue,),
+        activeIcon: SvgPicture.asset(i['icon'],),
       );
     }).toList(),
-      selectedItemColor: Colors.grey,
-      onTap: _onTapped,
-      currentIndex: selectedItem,
+
     );
 
   }

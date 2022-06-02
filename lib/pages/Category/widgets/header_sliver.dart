@@ -10,13 +10,14 @@ import 'filter_modal_bottom_sheet.dart';
 class HeaderSliver implements SliverPersistentHeaderDelegate{
   final double minExtent;
   final double maxExtent;
+  String title;
 
-  HeaderSliver({required this.minExtent, required this.maxExtent});
+  HeaderSliver({required this.minExtent, required this.maxExtent, required this.title});
 
   @override
   Widget build(BuildContext context, double shrinkOffset, bool overlapsContent) {
 
-    return HeaderH();
+    return HeaderH(title: title,);
   }
 
   @override
@@ -39,7 +40,8 @@ class HeaderSliver implements SliverPersistentHeaderDelegate{
 
 }
 class HeaderH extends StatefulWidget {
-  const HeaderH({Key? key}) : super(key: key);
+  String title;
+  HeaderH({Key? key, required this.title}) : super(key: key);
 
   @override
   _HeaderHState createState() => _HeaderHState();
@@ -74,7 +76,7 @@ class _HeaderHState extends State<HeaderH> {
                     }),
                   ),
                 ),
-                Text('Digital', style: TextStyle(fontSize: 18),),
+                Text(widget.title, style: TextStyle(fontSize: 18),),
                 Container(
                   width: 60,
                   alignment: Alignment.centerRight,

@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:shop/data/data.dart';
 import 'package:shop/pages/Category/list_screen.dart';
+import 'package:shop/pages/home/widgets/search_bar.dart';
 import 'package:shop/pages/home/widgets/section.dart';
 import 'package:shop/widgets/app_bottom_navigation.dart';
 import 'package:shop/pages/home/widgets/header.dart';
@@ -27,7 +28,7 @@ class _CategoryScreenState extends State<CategoryScreen> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Header(),
+              SearchBar(),
               Section('Digital products',
                  Data.digital.map((e){
                     return PromotionCard(
@@ -38,11 +39,11 @@ class _CategoryScreenState extends State<CategoryScreen> {
                       caption: e.caption,
                       onTap: () {
                         Navigator.push(context, MaterialPageRoute(
-                            builder: (context) => ListScreen(items: e.list!)));
+                            builder: (context) => ListScreen(items: e.list!, title: e.tag,)));
                       },
                     );
                   }).toList()),
-              Section('Clothing & Style',
+              Section('clothing & Style',
                   Data.clothing.map((e){
                     return PromotionCard(
                       imagePath: e.imagePath,
@@ -52,7 +53,7 @@ class _CategoryScreenState extends State<CategoryScreen> {
                       caption: e.caption,
                       onTap: () {
                       Navigator.push(context, MaterialPageRoute(
-                          builder: (context) => ListScreen(items: e.list!)));
+                          builder: (context) => ListScreen(items: e.list!, title: e.tag,)));
                       },
                     );
                   }).toList()),
@@ -67,7 +68,7 @@ class _CategoryScreenState extends State<CategoryScreen> {
                       caption: e.caption,
                       onTap: () {
                         Navigator.push(context, MaterialPageRoute(
-                            builder: (context) => ListScreen(items: e.list!)));
+                            builder: (context) => ListScreen(items: e.list!, title: e.tag,)));
                       },
                     );
                   }).toList()),
@@ -81,7 +82,7 @@ class _CategoryScreenState extends State<CategoryScreen> {
                       caption: e.caption,
                       onTap: () {
                         Navigator.push(context, MaterialPageRoute(
-                            builder: (context) => ListScreen(items: e.list!)));
+                            builder: (context) => ListScreen(items: e.list!, title: e.tag,)));
                       },
                     );
                   }).toList()),
