@@ -13,26 +13,31 @@ class _AppBarBottomNavigationState extends State<AppBarBottomNavigation> {
   int selectedItem = 0;
   List<dynamic> meneItems = [
     {
-    'icon': 'assets/icons/home.svg',
-    'label': 'Home'
+      'icon': 'assets/icons/home.svg',
+      'label': 'Home',
+      'page' : '/home'
     },
 
     {
       'icon': 'assets/icons/category.svg',
-      'label': 'Wallet'
+      'label': 'Category',
+      'page' : '/category'
     },
     {
       'icon': 'assets/icons/delivery.svg',
-      'label': 'Delivery'
+      'label': 'MyProducts',
+      'page' : '/myProducts'
     },
     {
       'icon': 'assets/icons/profile (1).svg',
-      'label': 'Profile'
+      'label': 'Profile',
+      'page' : '/profile'
     },
 
   ];
   void _onTapped(int index){
     setState(() {
+      Navigator.pushNamed(context, meneItems[index]['page']);
       selectedItem = index;
     });
   }
@@ -54,7 +59,7 @@ class _AppBarBottomNavigationState extends State<AppBarBottomNavigation> {
     }).toList(),
       selectedItemColor: Colors.grey,
       onTap: _onTapped,
-      currentIndex: 0,
+      currentIndex: selectedItem,
     );
 
   }

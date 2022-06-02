@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:shop/data/category.dart';
 import 'package:shop/pages/Category/category_screen.dart';
+import 'package:shop/pages/Category/list_screen.dart';
 import 'package:shop/pages/home/home_screen.dart';
 import 'package:shop/pages/loading.dart';
+import 'package:shop/pages/profile.dart';
 
 void main() {
   runApp(const MyApp());
@@ -20,14 +23,18 @@ class MyApp extends StatelessWidget {
         visualDensity: VisualDensity.adaptivePlatformDensity,
         primarySwatch: Colors.blue,
       ),
-      home: CategoryScreen(),
+      home: HomeScreen(),
       // initialRoute: '/home',
       debugShowCheckedModeBanner: false,
 
       routes: {
         // '/': (context) => Loading(),
         '/home': (context) => HomeScreen(),
+        '/list' : (context) => ListScreen(),
         '/category' : (context) => CategoryScreen(),
+        '/profile' : (context) => Profile(),
+        // '/myProducts' : (context) => MyProducts(),
+
       },
 
     );

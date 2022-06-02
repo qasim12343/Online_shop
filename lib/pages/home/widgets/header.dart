@@ -21,11 +21,12 @@ class Header extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Row(children: [
-                Text("NamaKala", style: TextStyle(fontSize: 28),),
+                Text("NamaKala", style: TextStyle(fontSize: 28, color: Colors.red),),
                 Container(
                   padding: EdgeInsets.only(top: 10),
                   child: Text("نماکالا",style: TextStyle(
-                      fontSize: 20
+                      fontSize: 20,
+                      color: Colors.blue[800]
                   ),),
                 ),
               ],
@@ -35,7 +36,7 @@ class Header extends StatelessWidget {
               Cart(numberOfItemsInCart: Data.numberOfItemsInCart),
             ],
           ),
-          Text("Get unique things",
+          Text("Get unique products",
           style: TextStyle(fontSize: 15, height: 2, color: Colors.black26),
           ),
           SearchBar(),

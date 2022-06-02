@@ -25,32 +25,26 @@ class Data{
     return _users;
   }
 
-
   static List <Category> categories = [
-  Category('assets/images/Digitals/Ipone 12.jpg' ,  'Phones'),
-  Category('assets/images/mac.jpg' , "Computers"),
-  Category( 'assets/images/Digitals/Ipone 12.jpg' , "Cameras"),
+  Category('assets/images/topSales.png' ,  'Best sales'),
+  Category('assets/images/discount.png' , "Top discounts"),
+  Category( 'assets/images/newProduct.jpg' , "New products "),
   ];
 
   static List<Promotion> promotions = [
     Promotion(title: 'All item \nDiscount up to',
       subtitle: '50%',
-      backgroundImagePath: '',
       tag: '3 April 2022',
-      reversedGradiant: false,
-      imagePath: 'assets/images/mac.jpg',
+      imagePath: 'assets/images/sonyPro.jpg',
       caption: '',
 
     ),
     Promotion(
       title: 'Git voucher gift',
       subtitle: '500000R',
-      backgroundImagePath: 'assets/images/simpleBackground.jpg',
-      reversedGradiant: true,
       caption: 'for new member\'s\nof NamaKala',
       tag: '',
-      imagePath: null,
-
+      imagePath: 'assets/images/simpleBackground.jpg',
     )
   ];
 
@@ -79,10 +73,10 @@ class Data{
         name: 'Iphone 12 pro max 256gb Memory 6gb Ram',
         rating: 4.5
     ),
-    Item(originalPrice: 4000000000,
+    Item(originalPrice: 800000000,
         discount: 2,
-        imagePath: 'assets/images/canonEosR6.jpg',
-        name: 'Canon Eos R6 4k',
+        imagePath: 'assets/images/XiamoM11.jpg',
+        name: 'Xiaomi M11 lite 256 gb memory 8 gb rma',
         rating: 4.6
     ),
     Item(originalPrice: 100000000,
@@ -100,25 +94,25 @@ class Data{
         name: 'mac air 2020',
         rating: 4.3
     ),
-    Item(originalPrice: 3200000000,
+    Item(originalPrice: 900000000,
         discount: 10,
-        imagePath: 'assets/images/lap.jpg',
-        name: 'Iphone 12 pro max 256gb Memory 6gb Ram',
+        imagePath: 'assets/images/desktopDell.jpg',
+        name: 'dell 4200  512 GB HDD',
         rating: 4.5
     ),
     Item(originalPrice: 4000000000,
         discount: 2,
-        imagePath: 'assets/images/canonEosR6.jpg',
-        name: 'Canon Eos R6 4k',
+        imagePath: 'assets/images/asus.jpg',
+        name: 'Asus Legion5 512 GB SSD',
         rating: 4.6
     ),
-    Item(originalPrice: 100000000,
+
+    Item(originalPrice: 1000000000,
         discount: 4,
-        imagePath: 'assets/images/Nokia.jpg',
-        name: 'Nokia R12 ',
+        imagePath: 'assets/images/dell5440.jpg',
+        name: 'Dell latitude 5440 512GB HDD',
         rating: 4.0
     )
-
   ];
 
 }

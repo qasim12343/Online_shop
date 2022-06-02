@@ -35,7 +35,6 @@ class Section extends StatelessWidget {
                   ],
                 ),
                   onTap:(){
-
                   }
               )
             ],

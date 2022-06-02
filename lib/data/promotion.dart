@@ -1,18 +1,14 @@
 class Promotion{
-  String? imagePath;
+  String imagePath;
   String? title;
-  String? backgroundImagePath;
   String? subtitle;
   String? tag;
   String? caption;
-  bool? reversedGradiant;
 
   Promotion({
     this.title,
-    this.backgroundImagePath,
     this.caption,
-    this.imagePath,
-    this.reversedGradiant,
+    required this.imagePath,
     this.subtitle,
     this.tag,
   });
