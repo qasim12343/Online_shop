@@ -2,7 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:shop/data/data.dart';
 import 'package:shop/pages/Category/list_screen.dart';
-import 'package:shop/pages/home/widgets/search_bar.dart';
+import 'package:shop/widgets/search_bar.dart';
 import 'package:shop/pages/home/widgets/section.dart';
 import 'package:shop/widgets/app_bottom_navigation.dart';
 import 'package:shop/pages/home/widgets/header.dart';
@@ -23,6 +23,7 @@ class _CategoryScreenState extends State<CategoryScreen> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
+        backgroundColor: Colors.amber[50],
         bottomNavigationBar: AppBarBottomNavigation(),
         body: SingleChildScrollView(
           child: Column(

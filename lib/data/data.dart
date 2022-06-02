@@ -9,12 +9,12 @@ import 'item.dart';
 
 class Data{
   static int numberOfItemsInCart = 0;
-  static User currentUser = User(firstName: 'name', password: '', email: 'email', phoneNumber: '0');
+  static User currentUser = User(firstName: 'name', password: '', email: 'email', phoneNumber: 'phone');
 
   static List<User> users = [
     User(
       firstName : "Qasem",
-      lastName : "Yu",
+      lastName : "Yusofi",
       email : "qasem.yousifi20@gmail.com",
       password : "asdfgh",
       phoneNumber : "09926067529",
@@ -59,7 +59,7 @@ class Data{
     ),
     Promotion(
         tag: 'For Kids',
-        imagePath: 'assets/images/kidsClothing.jpg',
+        imagePath: 'assets/images/clothing/kidsClothing.jpg',
         list: itemsKids
     ),
   ];
@@ -76,7 +76,7 @@ class Data{
     ),
     Promotion(
         tag: 'Music equipments',
-        imagePath: 'assets/images/book/musicEquipment.jpg',
+        imagePath: 'assets/images/book/musicEquibment.jpg',
         list: itemsCameras
     ),
   ];
@@ -221,8 +221,8 @@ class Data{
     ),
     Item(originalPrice: 3000000,
         discount: 4,
-        imagePath: 'assets/digital/images/clothing/pantM.jpg',
-        name: 'Pant blue ',
+        imagePath: 'assets/images/clothing/pantM.jpg',
+        name: 'Blue pant',
         rating: 2.1
     )
 

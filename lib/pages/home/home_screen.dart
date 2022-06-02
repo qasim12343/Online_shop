@@ -16,12 +16,12 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  Data fake = Data();
 
   @override
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
+        backgroundColor: Colors.amber[50],
         bottomNavigationBar: AppBarBottomNavigation(),
         body: SingleChildScrollView(
           child: Column(

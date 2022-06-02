@@ -83,7 +83,6 @@ class _HeaderHState extends State<HeaderH> {
                   child: Wrap(
                     crossAxisAlignment: WrapCrossAlignment.center,
                     children: [
-                      SvgPicture.asset('assets/icons/search.svg', height: 18,),
                       SizedBox(
                         width: 10,
                       ),

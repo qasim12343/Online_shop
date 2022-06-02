@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:shop/data/data.dart';
-import 'package:shop/pages/home/widgets/search_bar.dart';
+import 'package:shop/widgets/search_bar.dart';
 
 import '../../../widgets/cart.dart';
 
@@ -39,7 +39,11 @@ class Header extends StatelessWidget {
           Text("Get unique products",
           style: TextStyle(fontSize: 15, height: 2, color: Colors.black26),
           ),
+          SizedBox(
+            height: 10,
+          ),
           SearchBar(),
+
 
         ],
       ),

@@ -1,9 +1,13 @@
+import 'item.dart';
+
 class User{
   String firstName = "";
   String lastName ;
   String password = "";
   String email = "";
   String phoneNumber = "";
+  List<Item>? purcheses = [];
+  List<Item>? myProducts = [];
 
   User({required this.firstName, this.lastName = '',required this.password, required this.email, required this.phoneNumber});
 

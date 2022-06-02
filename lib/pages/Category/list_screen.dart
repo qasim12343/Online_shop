@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
+import 'package:shop/data/data.dart';
 import 'package:shop/data/item.dart';
 import 'package:shop/pages/Category/widgets/header_sliver.dart';
 import 'package:shop/widgets/app_bottom_navigation.dart';
@@ -8,6 +9,7 @@ import 'package:shop/widgets/app_bottom_navigation.dart';
 class ListScreen extends StatefulWidget {
   String title;
   List<Item> items;
+
   ListScreen({Key? key, required this.items, required this.title}) : super(key: key);
 
   @override
@@ -18,7 +20,7 @@ class _ListScreenState extends State<ListScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      bottomNavigationBar: AppBarBottomNavigation(),
+      // bottomNavigationBar: AppBarBottomNavigation(),
       backgroundColor: Colors.white,
       body: SafeArea(
         child: CustomScrollView(
@@ -42,10 +44,15 @@ class _ListScreenState extends State<ListScreen> {
     );
   }
 }
-class GridItem extends StatelessWidget {
+class GridItem extends StatefulWidget {
   final Item item;
-  const GridItem({Key? key, required this.item}) : super(key: key);
+  GridItem({Key? key, required this.item}) : super(key: key);
 
+  @override
+  State<GridItem> createState() => _GridItemState();
+}
+
+class _GridItemState extends State<GridItem> {
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -68,11 +75,11 @@ class GridItem extends StatelessWidget {
                   decoration: BoxDecoration(
                     image: DecorationImage(
                         alignment: Alignment.bottomCenter,
-                        image: AssetImage(item.imagePath)
+                        image: AssetImage(widget.item.imagePath)
                     )
                   ),
                 ),
-                if(item.discount != 0)
+                if(widget.item.discount != 0)
                   Positioned(
                     top: 16,
                     right: 16,
@@ -83,7 +90,7 @@ class GridItem extends StatelessWidget {
                       decoration: BoxDecoration(
                           color: Colors.blue[700],
                           shape: BoxShape.circle),
-                      child: Text('${item.discount}%',
+                      child: Text('${widget.item.discount}%',
                         textAlign: TextAlign.center,
                         style: TextStyle(color: Colors.white),
                       ),
@@ -97,20 +104,20 @@ class GridItem extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(item.name,
+                Text(widget.item.name,
                 style: TextStyle(fontSize: 14, height: 1.5),),
                 Wrap(
                   spacing: 3,
                   crossAxisAlignment: WrapCrossAlignment.center,
                   children: [
-                  Text("${item.Price}R",
+                  Text("${widget.item.Price}R",
                     style: TextStyle(
                       fontSize: 16,
                       height: 1.5,
                       color: Colors.blue
                     ),
                   ),
-                  Text("${item.originalPrice}R",
+                  Text("${widget.item.originalPrice}R",
                     style: TextStyle(fontSize: 11,height: 1.5, decoration: TextDecoration.lineThrough),)
                 ],
                 ),
@@ -118,7 +125,7 @@ class GridItem extends StatelessWidget {
                   child: Row(
                     children: [
                       RatingBar.builder(
-                        initialRating: item.rating,
+                        initialRating: widget.item.rating,
                         itemSize: 12,
                         itemCount: 5,
                         allowHalfRating: true,
@@ -131,14 +138,53 @@ class GridItem extends StatelessWidget {
                         onRatingUpdate: (double value) {  },
                       ),
                       SizedBox(width: 5,),
-                      Text('${item.rating}')
+                      Text('${widget.item.rating}'),
+                      SizedBox(height: 5,),
                     ],
                   ),
+                ),
+                Builder(
+                  builder: (context) {
+                    return Container(
+                      padding: EdgeInsets.all(7),
+                      child: !widget.item.isMine ?ElevatedButton(
+                        onPressed: () {
+                          setState(() {
+                            Data.numberOfItemsInCart++;
+                            Data.currentUser.purcheses!.add(widget.item);
+                            widget.item.isMine = true;
+                          });
+                        },
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Text("Buy",style: TextStyle(fontWeight: FontWeight.bold),),
+                            Icon(Icons.add_shopping_cart),
+                          ],
+                        )
+                      ):ElevatedButton(
+                          onPressed: () {
+                            setState(() {
+                              Data.numberOfItemsInCart--;
+                              Data.currentUser.purcheses!.remove(widget.item);
+                              widget.item.isMine = false;
+                            });
+                          },
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Text("Remove",style: TextStyle(fontWeight: FontWeight.bold),),
+                              Icon(Icons.delete_outline_rounded),
+                            ],
+                          )
+                      ),
+                    );
+                  }
                 )
               ],
             ),
           ),
-          IconButton(onPressed: (){}, icon: Icon(Icons.add))
+
         ],
       ),
     );
