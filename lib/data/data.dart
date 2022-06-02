@@ -31,13 +31,81 @@ class Data{
   Category( 'assets/images/newProduct.jpg' , "New products "),
   ];
 
+  static List<Promotion> digital = [
+    Promotion(
+      tag: 'Phone and Tablet',
+      imagePath: 'assets/images/Iphone1pro.jpg',
+      list: itemsPhone
+    ),
+    Promotion(
+      tag: 'Computer',
+      imagePath: 'assets/images/mac.jpg',
+      list: itemsComputer
+    ),
+    Promotion(
+      tag: 'Camera & Equipments',
+      imagePath: 'assets/images/nikonApha11.jpg',
+      list: itemsCameras
+    ),
+  ];
+  static List<Promotion> clothing = [
+    Promotion(
+        tag: 'Phone and Tablet',
+        imagePath: 'assets/images/Iphone1pro.jpg',
+        list: itemsPhone
+    ),
+    Promotion(
+        tag: 'Computer',
+        imagePath: 'assets/images/mac.jpg',
+        list: itemsComputer
+    ),
+    Promotion(
+        tag: 'Camera & Equipments',
+        imagePath: 'assets/images/nikonApha11.jpg',
+        list: itemsCameras
+    ),
+  ];
+  static List<Promotion> book = [
+    Promotion(
+        tag: 'Phone and Tablet',
+        imagePath: 'assets/images/Iphone1pro.jpg',
+        list: itemsPhone
+    ),
+    Promotion(
+        tag: 'Computer',
+        imagePath: 'assets/images/mac.jpg',
+        list: itemsComputer
+    ),
+    Promotion(
+        tag: 'Camera & Equipments',
+        imagePath: 'assets/images/nikonApha11.jpg',
+        list: itemsCameras
+    ),
+  ];
+  static List<Promotion> sport = [
+    Promotion(
+        tag: 'Phone and Tablet',
+        imagePath: 'assets/images/Iphone1pro.jpg',
+        list: itemsPhone
+    ),
+    Promotion(
+        tag: 'Computer',
+        imagePath: 'assets/images/mac.jpg',
+        list: itemsComputer
+    ),
+    Promotion(
+        tag: 'Camera & Equipments',
+        imagePath: 'assets/images/nikonApha11.jpg',
+        list: itemsCameras
+    ),
+  ];
+
   static List<Promotion> promotions = [
     Promotion(title: 'All item \nDiscount up to',
       subtitle: '50%',
       tag: '3 April 2022',
       imagePath: 'assets/images/sonyPro.jpg',
       caption: '',
-
     ),
     Promotion(
       title: 'Git voucher gift',
@@ -48,19 +116,8 @@ class Data{
     )
   ];
 
-  // static List<String> trend = [
-  //   'assets/images/Digitals/ipadMini.jpg',
-  //   'assets/images/C.jpg',
-  // ];
-  //
-  // static List<String> bests = [
-  //   'assets/images/phone.jpg',
-  //   'assets/images/coat.jpg',
-  //   'assets/images/boots.jpg',
-  //   'assets/images/shoes.jpg'
-  // ];
 
-  static List<Item> itemsPhones = [
+  static List<Item> itemsPhone = [
     Item(originalPrice: 5500000000,
         discount: 4,
         imagePath: 'assets/images/galaxy S 21.jpg',
@@ -87,7 +144,7 @@ class Data{
     )
 
   ];
-  static List<Item> itemsComputers = [
+  static List<Item> itemsComputer = [
     Item(originalPrice: 5500000000,
         discount: 4,
         imagePath: 'assets/images/mac.jpg',
@@ -111,6 +168,33 @@ class Data{
         discount: 4,
         imagePath: 'assets/images/dell5440.jpg',
         name: 'Dell latitude 5440 512GB HDD',
+        rating: 4.0
+    )
+  ];
+  static List<Item> itemsCameras = [
+    Item(originalPrice: 5500000000,
+        discount: 4,
+        imagePath: 'assets/images/nikonApha11.jpg',
+        name: 'Nikon Alpha 2020',
+        rating: 4.3
+    ),
+    Item(originalPrice: 900000000,
+        discount: 10,
+        imagePath: 'assets/images/lenseP8sony.jpg',
+        name: 'Lens P8 Sony',
+        rating: 4.5
+    ),
+    Item(originalPrice: 4000000000,
+        discount: 2,
+        imagePath: 'assets/images/canonEosR6.jpg',
+        name: 'Canon EOS R6 ',
+        rating: 4.6
+    ),
+
+    Item(originalPrice: 1000000000,
+        discount: 4,
+        imagePath: 'assets/images/omlympusProB4.jpg',
+        name: 'Olympus ProB4',
         rating: 4.0
     )
   ];

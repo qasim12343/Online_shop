@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:shop/data/category.dart';
 import 'package:shop/pages/Category/category_screen.dart';
 import 'package:shop/pages/Category/list_screen.dart';
+import 'package:shop/pages/MyProducts.dart';
 import 'package:shop/pages/home/home_screen.dart';
 import 'package:shop/pages/loading.dart';
 import 'package:shop/pages/profile.dart';
@@ -30,10 +30,9 @@ class MyApp extends StatelessWidget {
       routes: {
         // '/': (context) => Loading(),
         '/home': (context) => HomeScreen(),
-        '/list' : (context) => ListScreen(),
         '/category' : (context) => CategoryScreen(),
         '/profile' : (context) => Profile(),
-        // '/myProducts' : (context) => MyProducts(),
+        '/myProducts' : (context) => MyProducts(),
 
       },
 

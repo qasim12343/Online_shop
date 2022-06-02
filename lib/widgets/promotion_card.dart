@@ -48,7 +48,7 @@ class PromotionCard extends StatelessWidget {
             ],
             ),
             Positioned(
-                left: 0, bottom: 0,
+                left: 4, bottom: 0,
                 child: this.tag != ''
                     ? Container(
                       padding: EdgeInsets.all(2),

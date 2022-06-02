@@ -32,7 +32,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   Data.categories.map((e){
                     return CategoryCard(title: e.title, imagePath: e.imagePath,
                         onTap: (){
-                          Navigator.push(context, MaterialPageRoute(builder: (context)=> ListScreen() ));
+                          // Navigator.push(context, MaterialPageRoute(builder: (context)=> ListScreen() ));
 
                         });
                   }).toList()
@@ -40,10 +40,10 @@ class _HomeScreenState extends State<HomeScreen> {
               Section('Today\'s Promo', Data.promotions.map((e){
                 return PromotionCard(
                   imagePath: e.imagePath,
-                  title: e.title!,
-                   subtitle: e.subtitle!,
-                  tag: e.tag!,
-                  caption: e.caption!, onTap: () {  },
+                  title: e.title,
+                   subtitle: e.subtitle,
+                  tag: e.tag,
+                  caption: e.caption, onTap: () {  },
                 );
               }).toList()),
               // Section('Trending Furniture ',Data.trend.map((e) => ImageCard(imagePath: e,)).toList()),

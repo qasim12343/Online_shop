@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:shop/pages/loginPage/widget/theme.dart';
 
 import 'filter_list.dart';
 
@@ -95,7 +96,7 @@ class FilterModalBottomSheet extends StatelessWidget {
               child: FilterList(
                 onSelected: (selected) => print(selected),
               ),
-            )
+            ),
 
           ],
         ),

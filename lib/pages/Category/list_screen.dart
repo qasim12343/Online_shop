@@ -7,7 +7,8 @@ import 'package:shop/widgets/app_bottom_navigation.dart';
 import 'package:shop/data/data.dart';
 
 class ListScreen extends StatefulWidget {
-  const ListScreen({Key? key}) : super(key: key);
+  List<Item> items;
+  ListScreen({Key? key, required this.items}) : super(key: key);
 
   @override
   _ListScreenState createState() => _ListScreenState();
@@ -31,7 +32,7 @@ class _ListScreenState extends State<ListScreen> {
               childAspectRatio: 0.65,
               mainAxisSpacing: 14,
               crossAxisSpacing: 14,
-              children:Data.itemsPhones.asMap().entries.map((e){
+              children: widget.items.asMap().entries.map((e){
                   return GridItem(item: e.value);
                 }).toList(),
             )

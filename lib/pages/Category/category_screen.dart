@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:shop/data/data.dart';
+import 'package:shop/pages/Category/list_screen.dart';
 import 'package:shop/pages/home/widgets/section.dart';
 import 'package:shop/widgets/app_bottom_navigation.dart';
 import 'package:shop/pages/home/widgets/header.dart';
@@ -28,43 +29,60 @@ class _CategoryScreenState extends State<CategoryScreen> {
             children: [
               Header(),
               Section('Digital products',
-                 Data.promotions.map((e){
+                 Data.digital.map((e){
                     return PromotionCard(
                       imagePath: e.imagePath,
-                      title: e.title!,
-                      subtitle: e.subtitle!,
-                      tag: e.tag!,
-                      caption: e.caption!, onTap: () { Navigator.pushNamed(context, '/list'); },
+                      title: e.title,
+                      subtitle: e.subtitle,
+                      tag: e.tag,
+                      caption: e.caption,
+                      onTap: () {
+                        Navigator.push(context, MaterialPageRoute(
+                            builder: (context) => ListScreen(items: e.list!)));
+                      },
                     );
                   }).toList()),
               Section('Clothing & Style',
-                  Data.promotions.map((e){
+                  Data.clothing.map((e){
                     return PromotionCard(
                       imagePath: e.imagePath,
-                      title: e.title!,
-                      subtitle: e.subtitle!,
-                      tag: e.tag!,
-                      caption: e.caption!, onTap: () { Navigator.pushNamed(context, '/list'); },
+                      title: e.title,
+                      subtitle: e.subtitle,
+                      tag: e.tag,
+                      caption: e.caption,
+                      onTap: () {
+                      Navigator.push(context, MaterialPageRoute(
+                          builder: (context) => ListScreen(items: e.list!)));
+                      },
                     );
                   }).toList()),
+
               Section('Books & Stationary',
-                  Data.promotions.map((e){
+                  Data.book.map((e){
                     return PromotionCard(
                       imagePath: e.imagePath,
-                      title: e.title!,
-                      subtitle: e.subtitle!,
-                      tag: e.tag!,
-                      caption: e.caption!, onTap: () { Navigator.pushNamed(context, '/list'); },
+                      title: e.title,
+                      subtitle: e.subtitle,
+                      tag: e.tag,
+                      caption: e.caption,
+                      onTap: () {
+                        Navigator.push(context, MaterialPageRoute(
+                            builder: (context) => ListScreen(items: e.list!)));
+                      },
                     );
                   }).toList()),
               Section('Sport',
-                  Data.promotions.map((e){
+                  Data.sport.map((e){
                     return PromotionCard(
                       imagePath: e.imagePath,
-                      title: e.title!,
-                      subtitle: e.subtitle!,
-                      tag: e.tag!,
-                      caption: e.caption!, onTap: () { Navigator.pushNamed(context, '/list'); },
+                      title: e.title,
+                      subtitle: e.subtitle,
+                      tag: e.tag,
+                      caption: e.caption,
+                      onTap: () {
+                        Navigator.push(context, MaterialPageRoute(
+                            builder: (context) => ListScreen(items: e.list!)));
+                      },
                     );
                   }).toList()),
             ],
