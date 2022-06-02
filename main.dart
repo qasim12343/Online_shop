@@ -9,18 +9,17 @@ void main() {
 
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Nama Kala',
+      title: 'NamaKala',
       theme: ThemeData(
         scaffoldBackgroundColor: Colors.white,
         splashColor: Colors.transparent,
         visualDensity: VisualDensity.adaptivePlatformDensity,
         primarySwatch: Colors.blue,
       ),
-      home: Loading(),
+      home: CategoryScreen(),
       // initialRoute: '/home',
       debugShowCheckedModeBanner: false,
 

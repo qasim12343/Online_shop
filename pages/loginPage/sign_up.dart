@@ -1,7 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:shop/data/fake.dart';
+import 'package:shop/data/data.dart';
+import 'package:shop/data/user.dart';
 import 'package:shop/pages/home/home_screen.dart';
 import 'package:shop/pages/loginPage/widget/theme.dart';
 
@@ -27,7 +28,7 @@ class _SignUp extends State<SignUp>{
   TextEditingController password = TextEditingController();
   TextEditingController phoneNumber = TextEditingController();
 
-  Fake fake =  Fake();
+  Data fake =  Data();
 
   final _formKey = GlobalKey<FormState>();
   bool checkboxValue = false;

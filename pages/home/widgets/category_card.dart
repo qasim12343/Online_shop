@@ -3,10 +3,10 @@ import 'package:flutter/material.dart';
 
 class CategoryCard extends StatelessWidget {
   final String title;
-  final IconData iconData;
+  final String imagePath;
   final Function() onTap;
 
-  const CategoryCard({Key? key, required this.title, required this.iconData, required this.onTap}) : super(key: key);
+  const CategoryCard({Key? key, required this.title, required this.imagePath, required this.onTap}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -32,7 +32,7 @@ class CategoryCard extends StatelessWidget {
               Container(
                 height: 42,
                 width: 42,
-                child: Icon(iconData,size: 40,color: Colors.brown),
+                  child: Image(image: AssetImage(imagePath),),
               ),
               Text(title , style: TextStyle(fontSize: 16, height: 1.5),
               ),

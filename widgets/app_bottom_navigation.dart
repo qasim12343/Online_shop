@@ -16,14 +16,14 @@ class _AppBarBottomNavigationState extends State<AppBarBottomNavigation> {
     'icon': 'assets/icons/home.svg',
     'label': 'Home'
     },
+
+    {
+      'icon': 'assets/icons/category.svg',
+      'label': 'Wallet'
+    },
     {
       'icon': 'assets/icons/delivery.svg',
       'label': 'Delivery'
-    },
-
-    {
-      'icon': 'assets/icons/wallet.svg',
-      'label': 'Wallet'
     },
     {
       'icon': 'assets/icons/profile (1).svg',

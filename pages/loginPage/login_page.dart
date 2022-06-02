@@ -1,8 +1,8 @@
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:shop/data/fake.dart';
-import 'package:shop/data/fake.dart';
+import 'package:shop/data/data.dart';
+import 'package:shop/data/data.dart';
 import 'package:shop/pages/loginPage/sign_up.dart';
 import 'package:shop/pages/loginPage/widget/theme.dart';
 
@@ -27,7 +27,8 @@ class MyStatefulWidget extends StatefulWidget {
 class _MyStatefulWidgetState extends State<MyStatefulWidget> {
   TextEditingController nameController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
-  Fake fake = Fake();
+  Data fake = Data();
+  bool rightLogIn = false;
 
   @override
   Widget build(BuildContext context) {
@@ -102,18 +103,21 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
                   child: const Text('Login',style: TextStyle(color: Colors.blue),),
                   onPressed: () {
                     for(int i = 0; i< fake.getUsers().length; i++){
-                      if(fake.getUsers()[i].firstName+" "+fake.getUsers()[i].lastName == nameController.toString() &&
-                      fake.getUsers()[i].password == passwordController.toString()){
-                      Navigator.pushNamed(context, '/home');
+                      if(fake.getUsers()[i].firstName == nameController.value.text &&
+                      fake.getUsers()[i].password == passwordController.value.text){
+                        rightLogIn = true;
+                        Navigator.pushNamed(context, '/home');
                       }
                     };
-                    setState(() {
+                    if(!rightLogIn)
                       showDialog(
                         context: context,
                         builder: (BuildContext context) {
-                          return Them().alertDialog("Google Plus","You tap on GooglePlus social icon.",context);
+                          return Them().alertDialog("Wrong inputs","Pleas try again.",context);
                         },
                       );
+                    setState(() {
+
                     });
                   },
                   style: Them().buttonStyle(),
