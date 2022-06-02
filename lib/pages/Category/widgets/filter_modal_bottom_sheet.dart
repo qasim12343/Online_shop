@@ -97,7 +97,14 @@ class FilterModalBottomSheet extends StatelessWidget {
                 onSelected: (selected) => print(selected),
               ),
             ),
-
+            Container(
+              width: double.infinity,
+              child: ElevatedButton(
+                  onPressed: (){
+                    Navigator.pop(context);
+                  },
+                  child: Text('Apply')),
+            )
           ],
         ),
       ),
