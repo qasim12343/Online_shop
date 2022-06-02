@@ -28,15 +28,13 @@ class _SignUp extends State<SignUp>{
   TextEditingController password = TextEditingController();
   TextEditingController phoneNumber = TextEditingController();
 
-  Data fake =  Data();
-
   final _formKey = GlobalKey<FormState>();
   bool checkboxValue = false;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: Colors.white,
+        backgroundColor: Colors.amber[50],
         body: SingleChildScrollView(
         child: Stack(
           children: [
@@ -194,19 +192,31 @@ class _SignUp extends State<SignUp>{
                             password : password.value.text,
                             phoneNumber : phoneNumber.value.text,
                           );
-                          if(!fake.getUsers().contains(user)){
-                            fake.addUser(user);
+                          if(!Data.users.contains(user)){
+                            Data.users.add(user);
+                            Data.currentUser = user;
                           }
 
                         });
-                        if (_formKey.currentState!.validate()) {
+                        bool s = true;
+                        for(int i = 0 ; i < Data.users.length; i++){
+                          if(phoneNumber.value.text == Data.users[i].phoneNumber)
+                            s = false;
+                        }
+                        if (_formKey.currentState!.validate()&& s) {
                           Navigator.of(context).pushAndRemoveUntil(
                               MaterialPageRoute(
                                   builder: (context) => HomeScreen()
                               ),
                                   (Route<dynamic> route) => false
                           );
-                        }
+                        }else
+                          showDialog(
+                            context: context,
+                            builder: (BuildContext context) {
+                              return Them().alertDialog("Try again","This phone number is already used.",context);
+                            },
+                          );
                       },
                     ),
                   ),

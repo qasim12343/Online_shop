@@ -47,7 +47,7 @@ class Section extends StatelessWidget {
               padding: const EdgeInsets.all(28.0),
               child: Wrap(
                 spacing: 28,
-                children: children
+                children: children,
               ),
             ),
           ),

@@ -8,26 +8,24 @@ import 'item.dart';
 
 
 class Data{
-  static int numberOfItemsInCart = 1;
-  List<User> _users = [User(
-  firstName : "Qasem",
-  lastName : "Yu",
-  email : "qasem.yousifi20@gmail.com",
-  password : "asdfgh",
-  phoneNumber : "09926067529",
-  )];
+  static int numberOfItemsInCart = 0;
+  static User currentUser = User(firstName: 'name', password: '', email: 'email', phoneNumber: '0');
 
-  void addUser(User user){
-    _users.add(user);
-  }
-  List<User> getUsers(){
-    return _users;
-  }
+  static List<User> users = [
+    User(
+      firstName : "Qasem",
+      lastName : "Yu",
+      email : "qasem.yousifi20@gmail.com",
+      password : "asdfgh",
+      phoneNumber : "09926067529",
+    ),
+  ];
+
 
   static List <Category> categories = [
-  Category('assets/images/topSales.png' ,  'Best sales'),
-  Category('assets/images/discount.png' , "Top discounts"),
-  Category( 'assets/images/newProduct.jpg' , "New products "),
+    Category('assets/images/topSales.png' ,  'Best sales'),
+    Category('assets/images/discount.png' , "Top discounts"),
+    Category( 'assets/images/newProduct.jpg' , "New products "),
   ];
 
   static List<Promotion> digital = [

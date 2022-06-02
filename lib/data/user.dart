@@ -1,11 +1,11 @@
 class User{
   String firstName = "";
-  String lastName = "";
+  String lastName ;
   String password = "";
   String email = "";
   String phoneNumber = "";
 
-  User({required this.firstName,lastName,required this.password, required this.email, required this.phoneNumber});
+  User({required this.firstName, this.lastName = '',required this.password, required this.email, required this.phoneNumber});
 
   @override
   bool operator ==(Object other) =>

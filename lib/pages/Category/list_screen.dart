@@ -4,7 +4,6 @@ import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:shop/data/item.dart';
 import 'package:shop/pages/Category/widgets/header_sliver.dart';
 import 'package:shop/widgets/app_bottom_navigation.dart';
-import 'package:shop/data/data.dart';
 
 class ListScreen extends StatefulWidget {
   String title;
@@ -139,6 +138,7 @@ class GridItem extends StatelessWidget {
               ],
             ),
           ),
+          IconButton(onPressed: (){}, icon: Icon(Icons.add))
         ],
       ),
     );

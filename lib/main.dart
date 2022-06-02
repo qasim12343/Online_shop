@@ -31,7 +31,7 @@ class MyApp extends StatelessWidget {
         // '/': (context) => Loading(),
         '/home': (context) => HomeScreen(),
         '/category' : (context) => CategoryScreen(),
-        '/profile' : (context) => Profile(),
+        '/profile' : (context) => ProfilePage(),
         '/myProducts' : (context) => MyProducts(),
 
       },
