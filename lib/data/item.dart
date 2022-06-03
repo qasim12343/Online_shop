@@ -9,7 +9,7 @@ class Item {
   double originalPrice;
   double rating;
   bool isMine;
-  List<Color>? colors  = [Colors.white];
+  List<Color>? colors  = [Colors.black12];
 
   Item({required this.name, required this.imagePath, required this.discount, required this.originalPrice,
       required this.rating,this.isMine = false, this.colors});

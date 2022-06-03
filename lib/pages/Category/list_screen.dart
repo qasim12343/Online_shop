@@ -6,6 +6,8 @@ import 'package:shop/data/item.dart';
 import 'package:shop/pages/Category/widgets/header_sliver.dart';
 import 'package:shop/widgets/app_bottom_navigation.dart';
 
+import 'item_page.dart';
+
 class ListScreen extends StatefulWidget {
   String title;
   List<Item> items;

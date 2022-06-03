@@ -1,9 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:shop/pages/Category/category_screen.dart';
+import 'package:shop/pages/Category/item_page.dart';
+import 'package:shop/pages/Category/list_screen.dart';
 import 'package:shop/pages/MyProducts.dart';
 import 'package:shop/pages/home/home_screen.dart';
 import 'package:shop/pages/loading.dart';
 import 'package:shop/pages/profile.dart';
+
+import 'data/data.dart';
 
 void main() {
   runApp(const MyApp());
@@ -22,7 +26,7 @@ class MyApp extends StatelessWidget {
         visualDensity: VisualDensity.adaptivePlatformDensity,
         primarySwatch: Colors.blue,
       ),
-      home: HomeScreen(),
+      home: ItemPage(item:Data.itemsPhone[0],),
       // initialRoute: '/home',
       debugShowCheckedModeBanner: false,
 
