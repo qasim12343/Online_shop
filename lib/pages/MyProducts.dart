@@ -103,11 +103,9 @@ class _AddProductsState extends State<AddProducts> {
                       Positioned(
                         bottom: 0,
                         right: 0,
-                        child: ElevatedButton(
-                          style: ButtonStyle(
-                          ),
+                        child: IconButton(
                           onPressed: (){},
-                           child:Icon(Icons.add,size: 40.0,),
+                           icon:Icon(Icons.add,size: 40.0,),
                       ))
                     ],
                   ),

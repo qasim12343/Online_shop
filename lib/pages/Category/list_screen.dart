@@ -145,44 +145,6 @@ class _GridItemState extends State<GridItem> {
                     ],
                   ),
                 ),
-                Builder(
-                  builder: (context) {
-                    return Container(
-                      padding: EdgeInsets.all(7),
-                      child: !widget.item.isMine ?ElevatedButton(
-                        onPressed: () {
-                          setState(() {
-                            Data.numberOfItemsInCart++;
-                            Data.currentUser.purcheses!.add(widget.item);
-                            widget.item.isMine = true;
-                          });
-                        },
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Text("Buy",style: TextStyle(fontWeight: FontWeight.bold),),
-                            Icon(Icons.add_shopping_cart),
-                          ],
-                        )
-                      ):ElevatedButton(
-                          onPressed: () {
-                            setState(() {
-                              Data.numberOfItemsInCart--;
-                              Data.currentUser.purcheses!.remove(widget.item);
-                              widget.item.isMine = false;
-                            });
-                          },
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              Text("Remove",style: TextStyle(fontWeight: FontWeight.bold),),
-                              Icon(Icons.delete_outline_rounded),
-                            ],
-                          )
-                      ),
-                    );
-                  }
-                )
               ],
             ),
           ),

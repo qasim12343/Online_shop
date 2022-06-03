@@ -110,7 +110,85 @@ class _ItemPageState extends State<ItemPage> {
                       ),
                     ),
                     SizedBox(height: 10,),
+                    Text("-------------------------------------------"),
+                    Row(children: [
+                      Text("Seller : ", style: TextStyle(fontSize: 16)),
+                      SizedBox(width: 10,),
+                      Text(widget.item.sellerName, style: TextStyle(fontSize: 20),)
+                    ],),
+                    SizedBox(height: 10,),
+                    Row(children: [
+                      Text("Number of Exist : ", style: TextStyle(fontSize: 16)),
+                      SizedBox(width: 10,),
+                      Text('${widget.item.count}', style: TextStyle(fontSize: 20),)
+                    ],),
+                    SizedBox(height: 20,),
+                    Center(child: Text('Colors',style: TextStyle(fontSize:25),)),
+                    Padding(
+                      padding: const EdgeInsets.all(10.0),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: [
+                        InkWell(
+                          onTap: (){
+                            setState(() {
+                              colorSelected = !colorSelected;
+                            });
+                          },
+                          child: Container(
+                            decoration: BoxDecoration(
+                              boxShadow: [BoxShadow(color: Colors.grey,blurRadius: 3)],
+                              shape: BoxShape.circle,
+                              color: Colors.white,
+                            ),
+                            height: 40,
+                            width: 40,
+                            child:
+                            Center(child: colorSelected ? SvgPicture.asset('assets/icons/tick.svg'):null),
+                          ),
+                        ),
+                          SizedBox(width: 12,),
+                          InkWell(
+                            onTap: (){
+                              setState(() {
+                                colorSelected = !colorSelected;
+                              });
+                            },
+                            child: Container(
+                              decoration: BoxDecoration(
+                                boxShadow: [BoxShadow(color: Colors.grey,blurRadius: 3)],
+                                shape: BoxShape.circle,
+                                color: Colors.blueGrey,
+                              ),
+                              height: 40,
+                              width: 40,
+                              child:
+                              Center(child: colorSelected ? SvgPicture.asset('assets/icons/tick.svg'):null),
+                            ),
+                          ),
+                          SizedBox(width: 12,),
+                          InkWell(
+                            onTap: (){
+                              setState(() {
+                                colorSelected = !colorSelected;
+                              });
+                            },
+                            child: Container(
+                              decoration: BoxDecoration(
+                                boxShadow: [BoxShadow(color: Colors.grey,blurRadius: 3)],
+                                shape: BoxShape.circle,
+                                color: Colors.red,
+                              ),
+                              height: 40,
+                              width: 40,
+                              child:
+                              Center(child: colorSelected ? SvgPicture.asset('assets/icons/tick.svg'):null),
+                            ),
+                          ),
 
+                      ],
+                      ),
+                    ),
                     Builder(
                         builder: (context) {
                           return Container(
@@ -118,6 +196,7 @@ class _ItemPageState extends State<ItemPage> {
                             child: !widget.item.isMine ?ElevatedButton(
                                 onPressed: () {
                                   setState(() {
+                                    widget.item.count --;
                                     Data.numberOfItemsInCart++;
                                     Data.currentUser.purcheses!.add(widget.item);
                                     widget.item.isMine = true;
@@ -136,6 +215,7 @@ class _ItemPageState extends State<ItemPage> {
                                     Data.numberOfItemsInCart--;
                                     Data.currentUser.purcheses!.remove(widget.item);
                                     widget.item.isMine = false;
+
                                   });
                                 },
                                 child: Row(
