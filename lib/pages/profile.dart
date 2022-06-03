@@ -138,11 +138,39 @@ class _ProfilePageState extends State<ProfilePage>{
                                           ),
                                         ),
                                         ListTile(
-                                          title: Text("About Me"),
-                                          subtitle: Text(
-                                              "This is a about me link and you can khow about me in this section."),
+                                          leading: Text("Password"),
+                                          subtitle: Builder(
+                                            builder: (context) {
+                                              return Container(
+                                                child: Column(
+                                                  children: [
+                                                    TextFormField(
+                                                      controller: password,
+                                                      obscureText: !visible,
+                                                      decoration: Them().textInputDecoration(Data.currentUser.password,"Enter your password"),
+                                                      ),
+                                                    Container(
+                                                      width: 200,
+                                                      padding: EdgeInsets.all(7),
+                                                      child: Row(
+                                                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                                        children: [
+                                                        Text("visible"),
+                                                        Checkbox(
+                                                            value: visible,
+                                                            onChanged: (bool?value){
+                                                              setState(() {
+                                                                visible = value??false;
+                                                              });
+                                                            })
+                                                      ],),
+                                                    )
+                                                  ],
+                                                ),
+                                              );
+                                            }
+                                          ),
                                         ),
-                                        SizedBox(height: 10,)
                                       ],
                                     ),
                                   ],

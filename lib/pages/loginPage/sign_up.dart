@@ -98,18 +98,16 @@ class _SignUp extends State<SignUp>{
                           ),
                         ),
                         SizedBox(height: 20.0),
-                        Container(
-                          child: TextFormField(
-                            controller: email,
-                            decoration: Them().textInputDecoration("E-mail address", "Enter your email"),
-                            keyboardType: TextInputType.emailAddress,
-                            validator: (val) {
-                              if(!(val!.isEmpty) && !RegExp(r"^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,253}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,253}[a-zA-Z0-9])?)*$").hasMatch(val)){
-                                return "Enter a valid email address";
-                              }
-                              return null;
-                            },
-                          ),
+                        TextFormField(
+                          controller: email,
+                          decoration: Them().textInputDecoration("E-mail address", "Enter your email"),
+                          keyboardType: TextInputType.emailAddress,
+                          validator: (val) {
+                            if(!(val!.isEmpty) && !RegExp(r"^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,253}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,253}[a-zA-Z0-9])?)*$").hasMatch(val)){
+                              return "Enter a valid email address";
+                            }
+                            return null;
+                          },
                         ),
                         SizedBox(height: 20.0),
                         Container(
