@@ -46,17 +46,17 @@ class _AppBarBottomNavigationState extends State<AppBarBottomNavigation> {
     return BottomNavigationBar(
       backgroundColor: Colors.blue[200],
       unselectedItemColor: Colors.black,
-      elevation: 32,
+      // elevation: 32,
       type: BottomNavigationBarType.fixed,
       currentIndex: selectedItem,
-      selectedItemColor: Colors.white,
+      selectedItemColor: Colors.black,
       onTap: _onTapped,
 
       items: meneItems.map((i){
       return BottomNavigationBarItem(
-        icon: SvgPicture.asset(i['icon'],width: 20, height: 26,),
+        icon: SvgPicture.asset(i['icon'],height: 25,width: 25,),
         label: i['label'],
-        activeIcon: SvgPicture.asset(i['icon'],),
+        activeIcon: SvgPicture.asset(i['icon'],height: 25,width: 25),
       );
     }).toList(),
 

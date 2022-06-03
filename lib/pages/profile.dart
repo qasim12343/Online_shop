@@ -1,12 +1,16 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:shop/data/data.dart';
 import 'package:shop/data/user.dart';
+import 'package:shop/pages/loginPage/login_page.dart';
 
-import 'loginPage/widget/theme.dart';
+import '../widgets/theme.dart';
 
 class ProfilePage extends StatefulWidget{
+  const ProfilePage({Key? key}) : super(key: key);
+
 
   @override
   State<StatefulWidget> createState() {
@@ -47,7 +51,7 @@ class _ProfilePageState extends State<ProfilePage>{
             Container(height: 100, color: Colors.blueAccent,),
             Container(
               alignment: Alignment.center,
-              margin: EdgeInsets.fromLTRB(25, 10, 25, 10),
+              margin: EdgeInsets.fromLTRB(10, 10, 10, 10),
               padding: EdgeInsets.fromLTRB(10, 0, 10, 0),
               child: Column(
                 children: [
@@ -68,7 +72,6 @@ class _ProfilePageState extends State<ProfilePage>{
                   SizedBox(height: 20,),
                   SizedBox(height: 10,),
                   Container(
-                    padding: EdgeInsets.all(10),
                     child: Column(
                       children: <Widget>[
                         Container(
@@ -87,7 +90,7 @@ class _ProfilePageState extends State<ProfilePage>{
                         Card(
                           child: Container(
                             alignment: Alignment.topLeft,
-                            padding: EdgeInsets.all(15),
+                            padding: EdgeInsets.all(10),
                             child: Column(
                               children: <Widget>[
                                 Column(
@@ -147,7 +150,14 @@ class _ProfilePageState extends State<ProfilePage>{
                                                     TextFormField(
                                                       controller: password,
                                                       obscureText: !visible,
-                                                      decoration: Them().textInputDecoration(Data.currentUser.password,"Enter your password"),
+                                                      decoration: Them().textInputDecoration('*******',"Enter your new password"),
+                                                      validator: (val){
+                                                        if(!(val!.length > 7)){
+                                                          return "Enter at least 8 character";
+                                                        }
+                                                        else
+                                                          return null;
+                                                      },
                                                       ),
                                                     Container(
                                                       width: 200,
@@ -174,28 +184,40 @@ class _ProfilePageState extends State<ProfilePage>{
                                       ],
                                     ),
                                   ],
-                                )
+                                ),
+                                Container(
+                                  width: 300,
+                                  decoration: Them().buttonBoxDecoration(context),
+                                  child: TextButton(
+                                    onPressed: (){setState(() {
+                                      Data.currentUser = User(
+                                          firstName: userName.value.text != ''? userName.value.text: Data.currentUser.phoneNumber,
+                                          password: password.value.text != ''? password.value.text: Data.currentUser.password,
+                                          email: email.value.text != ''? email.value.text: Data.currentUser.email,
+                                          phoneNumber: phoneNumber.value.text != ''? userName.value.text: Data.currentUser.phoneNumber,
+                                          lastName: Data.currentUser.lastName
+                                      );
+                                    });
+                                    },
+                                    child: Text("Apply changes",style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),),
+                                  ),
+                                ),
                               ],
                             ),
                           ),
                         ),
-                       Container(
-                         width: 300,
-                        decoration: Them().buttonBoxDecoration(context),
-                        child: TextButton(
+                        SizedBox(height: 20,),
+                        Container(
+                          width: 300,
+                          decoration: Them().buttonBoxDecoration(context),
+                          child: TextButton(
                             onPressed: (){setState(() {
-                              Data.currentUser = User(
-                                  firstName: userName.value.text != ''? userName.value.text: Data.currentUser.phoneNumber,
-                                  password: password.value.text != ''? password.value.text: Data.currentUser.password,
-                                  email: email.value.text != ''? email.value.text: Data.currentUser.email,
-                                  phoneNumber: phoneNumber.value.text != ''? userName.value.text: Data.currentUser.phoneNumber,
-                                  lastName: Data.currentUser.lastName
-                              );
+                              Navigator.push(context, MaterialPageRoute(builder:(context)=>LoginPage()));
                             });
-                          },
-                          child: Text("Apply changes",style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),)
-                        ),
-                      )
+                            },
+                            child: Text("Log out",style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),),
+                          ),
+                        )
                       ],
                     ),
                   ),

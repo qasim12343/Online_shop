@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:shop/pages/loginPage/widget/theme.dart';
+import 'package:shop/widgets/theme.dart';
 
 import 'filter_list.dart';
 

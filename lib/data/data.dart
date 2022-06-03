@@ -2,10 +2,7 @@ import 'dart:core';
 import 'package:shop/data/category.dart';
 import 'package:shop/data/promotion.dart';
 import 'package:shop/data/user.dart';
-
-
 import 'item.dart';
-
 
 class Data{
   static int numberOfItemsInCart = 0;
@@ -67,17 +64,17 @@ class Data{
     Promotion(
         tag: 'Book',
         imagePath: 'assets/images/book/books.jpg',
-        list: itemsPhone
+        list: itemsBook
     ),
     Promotion(
         tag: 'Stationary',
         imagePath: 'assets/images/book/stationary.jpg',
-        list: itemsComputer
+        list: itemsStationary
     ),
     Promotion(
         tag: 'Music equipments',
         imagePath: 'assets/images/book/musicEquibment.jpg',
-        list: itemsCameras
+        list: itemsMusic
     ),
   ];
   static List<Promotion> sport = [
@@ -203,7 +200,7 @@ class Data{
  static List<Item> itemsMen = [
     Item(originalPrice: 20000000,
         discount: 19,
-        imagePath: 'assets/images/clothing/CoatBM.jpg',
+        imagePath: 'assets/images/clothing/coatBM.jpg',
         name: 'Winter Coat',
         rating: 3.9
     ),
@@ -257,10 +254,65 @@ class Data{
     ),
     Item(originalPrice: 2500000,
         discount: 10,
-        imagePath: 'assets/images/digital/clothing/tshirtShortK.jpg',
+        imagePath: 'assets/images/clothing/tshirtShortK.jpg',
+        name: 'Clothes ',
+        rating: 4.5
+    ),
+  ];
+
+  /// Book items
+
+  static List<Item> itemsMusic = [
+    Item(originalPrice: 60000000,
+        discount: 11,
+        imagePath: 'assets/images/book/drum.jpg',
+        name: 'Classic Drum BR3',
+        rating: 4.2
+    ),
+    Item(originalPrice: 1000000000,
+        discount: 9,
+        imagePath: 'assets/images/book/piano.jpg',
+        name: 'Summer cap',
+        rating: 4.9
+    ),
+    Item(originalPrice: 90000000,
+        discount: 30,
+        imagePath: 'assets/images/book/guitar.jpg',
+        name: 'Guitar',
+        rating: 4.6
+    ),
+
+  ];
+
+  static List<Item> itemsBook = [
+    Item(originalPrice: 550000,
+        discount: 4,
+        imagePath: 'assets/images/book/bookSecret.jpg',
+        name: 'Set Of Highlighter 10 items',
+        rating: 4.0
+    ),
+    Item(originalPrice: 2500000,
+        discount: 10,
+        imagePath: 'assets/images/book/bookHollyBlack.jpg',
+        name: 'Book "Holly Black"',
+        rating: 3.1
+    ),
+
+  ];
+  static List<Item> itemsStationary = [
+    Item(originalPrice: 4000000,
+        discount: 17,
+        imagePath: 'assets/images/book/highlighter.jpg',
+        name: 'Grey coat',
+        rating: 4.3
+    ),
+    Item(originalPrice: 2500000,
+        discount: 10,
+        imagePath: 'assets/images/book/noteBook.jpg',
         name: 'Lens P8 Sony',
         rating: 4.5
     ),
   ];
 
 }
+

@@ -17,7 +17,6 @@ class CategoryScreen extends StatefulWidget {
 }
 
 class _CategoryScreenState extends State<CategoryScreen> {
-  Data fake = Data();
 
   @override
   Widget build(BuildContext context) {

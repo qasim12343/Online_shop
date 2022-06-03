@@ -4,7 +4,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:shop/data/data.dart';
 import 'package:shop/data/user.dart';
 import 'package:shop/pages/home/home_screen.dart';
-import 'package:shop/pages/loginPage/widget/theme.dart';
+import 'package:shop/widgets/theme.dart';
 
 void main(){
   runApp(MaterialApp(
@@ -136,7 +136,7 @@ class _SignUp extends State<SignUp>{
                                     decoration: Them().textInputDecoration(
                                         "Password*", "Enter your password"),
                                     validator: (val) {
-                                      if (val!.isEmpty) {
+                                      if (val!.length > 7) {
                                         return "Please enter your password";
                                       }
                                       return null;

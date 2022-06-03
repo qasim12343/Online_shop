@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:shop/data/data.dart';
 import 'package:shop/data/data.dart';
 import 'package:shop/pages/loginPage/sign_up.dart';
-import 'package:shop/pages/loginPage/widget/theme.dart';
+import 'package:shop/widgets/theme.dart';
 
 class LoginPage extends StatelessWidget {
   const LoginPage({Key? key}) : super(key: key);
@@ -54,7 +54,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
                       ),
                       Container(
                           padding: EdgeInsets.only(top: 20),
-                          child: Text('نماکالا',style: TextStyle(color: Colors.white,fontSize: 20),))
+                          child: Text('نماکالا',style: TextStyle(color: Colors.blue,fontSize: 20),))
                     ],
                   )
               ),
@@ -133,7 +133,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
                             Data.users[i].password == passwordController.value.text){
                           rightLogIn = true;
                           Data.currentUser = Data.users[i];
-                          Navigator.pushNamed(context, '/home');
+                          Navigator.pushReplacementNamed(context, '/home');
                         }
                       };
                       if(!rightLogIn)
