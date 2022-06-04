@@ -16,9 +16,9 @@ class Cart extends StatelessWidget {
       child: Stack(
         clipBehavior: Clip.none, children: [
           Container(
-            width: 24,
-            height: 24,
-            child: Icon(Icons.add_shopping_cart),
+            width: 30,
+            height: 30,
+            child: Icon(Icons.add_shopping_cart,size:40,),
           ),
           if(numberOfItemsInCart > 0)
           Positioned(

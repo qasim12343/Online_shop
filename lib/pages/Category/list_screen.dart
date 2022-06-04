@@ -22,7 +22,7 @@ class _ListScreenState extends State<ListScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // bottomNavigationBar: AppBarBottomNavigation(),
+      bottomNavigationBar: AppBarBottomNavigation(),
       backgroundColor: Colors.white,
       body: SafeArea(
         child: CustomScrollView(

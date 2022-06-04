@@ -63,7 +63,6 @@ class _HeaderHState extends State<HeaderH> {
           Padding(
             padding: const EdgeInsets.symmetric(vertical: 15, horizontal: 28),
             child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 Container(
@@ -76,19 +75,9 @@ class _HeaderHState extends State<HeaderH> {
                     }),
                   ),
                 ),
+
+                SizedBox(width: 50,),
                 Text(widget.title, style: TextStyle(fontSize: 18),),
-                Container(
-                  width: 60,
-                  alignment: Alignment.centerRight,
-                  child: Wrap(
-                    crossAxisAlignment: WrapCrossAlignment.center,
-                    children: [
-                      SizedBox(
-                        width: 10,
-                      ),
-                      Cart(numberOfItemsInCart: Data.numberOfItemsInCart,)
-                    ],),
-                )
               ],
             ),
           ),

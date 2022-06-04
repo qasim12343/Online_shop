@@ -24,6 +24,11 @@ class _AppBarBottomNavigationState extends State<AppBarBottomNavigation> {
       'page' : '/category'
     },
     {
+      'icon': 'assets/icons/cart.svg',
+      'label': 'Cart',
+      'page' : '/cart'
+    },
+    {
       'icon': 'assets/icons/delivery.svg',
       'label': 'MyProducts',
       'page' : '/myProducts'
