@@ -8,6 +8,7 @@ class User{
   String phoneNumber = "";
   List<Item>? purcheses = [];
   List<Item>? myProducts = [];
+  List<Item>? favorites = [];
 
   User({required this.firstName, this.lastName = '',required this.password, required this.email, required this.phoneNumber});
 

@@ -7,6 +7,7 @@ import 'package:shop/data/user.dart';
 import 'package:shop/pages/loginPage/login_page.dart';
 
 import '../widgets/theme.dart';
+import 'Category/list_screen.dart';
 
 class ProfilePage extends StatefulWidget{
   const ProfilePage({Key? key}) : super(key: key);
@@ -79,8 +80,46 @@ class _ProfilePageState extends State<ProfilePage>{
                   Container(
                     child: Column(
                       children: <Widget>[
+                        InkWell(
+                          onTap: (){
+                            Navigator.push(context,
+                                MaterialPageRoute(
+                                    builder: (context)=>ListScreen(
+                                      items: Data.currentUser.favorites!,
+                                      title: 'Favorites',isFavoritePage: true,)));
+                          },
+                          splashColor: Colors.blue,
+                          child: Container(
+                            padding: const EdgeInsets.only(left: 10, top: 7),
+                            height: 45,
+                            decoration: BoxDecoration(
+                              color: Colors.white,
+                              borderRadius: BorderRadius.circular(7),
+                              boxShadow: [BoxShadow(color: Colors.grey,spreadRadius: 0.1, blurRadius: 0.5)]
+                              
+                            ),
+                            alignment: Alignment.topLeft,
+                            child: Row(
+                              children: [
+                                Icon(Icons.favorite,color: Colors.red,),
+                                SizedBox(width: 20,),
+                                Text(
+                                  "Favorite List",
+                                  style: TextStyle(
+                                    color: Colors.black87,
+                                    fontWeight: FontWeight.w500,
+                                    fontSize: 16,
+                                  ),
+                                  textAlign: TextAlign.left,
+                                ),
+                                SizedBox(width: 125,),
+                                Icon(Icons.arrow_forward_ios)
+                              ],
+                            ),
+                          ),
+                        ),
                         Container(
-                          padding: const EdgeInsets.only(left: 8.0, bottom: 4.0),
+                          padding: const EdgeInsets.only(left: 8.0, bottom: 4.0,top: 20),
                           alignment: Alignment.topLeft,
                           child: Text(
                             "User Information",
@@ -109,7 +148,7 @@ class _ProfilePageState extends State<ProfilePage>{
                                           subtitle:  Container(
                                             child: TextFormField(
                                               controller: userName,
-                                              decoration: Them().textInputDecoration(Data.currentUser.firstName, 'Enter your first name'),
+                                              decoration: Them().textInputDecoration(Data.currentUser.firstName, 'Enter your UserName'),
                                             ),
                                           ),
                                         ),
@@ -191,12 +230,12 @@ class _ProfilePageState extends State<ProfilePage>{
                                   ],
                                 ),
                                 Container(
-                                  width: 300,
+                                  width: 150,
                                   decoration: Them().buttonBoxDecoration(context),
                                   child: TextButton(
                                     onPressed: (){setState(() {
                                       Data.currentUser = User(
-                                          firstName: userName.value.text != ''? userName.value.text: Data.currentUser.phoneNumber,
+                                          firstName: userName.value.text != ''? userName.value.text: Data.currentUser.firstName+' '+Data.currentUser.lastName,
                                           password: password.value.text != ''? password.value.text: Data.currentUser.password,
                                           email: email.value.text != ''? email.value.text: Data.currentUser.email,
                                           phoneNumber: phoneNumber.value.text != ''? userName.value.text: Data.currentUser.phoneNumber,
@@ -213,7 +252,7 @@ class _ProfilePageState extends State<ProfilePage>{
                         ),
                         SizedBox(height: 20,),
                         Container(
-                          width: 300,
+                          width: 325,
                           decoration: Them().buttonBoxDecoration(context),
                           child: TextButton(
                             onPressed: (){setState(() {
@@ -222,7 +261,7 @@ class _ProfilePageState extends State<ProfilePage>{
                             },
                             child: Text("Log out",style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),),
                           ),
-                        )
+                        ),
                       ],
                     ),
                   ),

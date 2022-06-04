@@ -5,8 +5,9 @@ import 'package:shop/data/user.dart';
 import 'item.dart';
 
 class Data{
-  static int numberOfItemsInCart = 0;
+  static int numberOfItemsInCart = currentUser.purcheses!.length;
   static User currentUser = User(firstName: 'name', password: '', email: 'email', phoneNumber: 'phone');
+
 
   static List<User> users = [
     User(

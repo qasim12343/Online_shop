@@ -26,17 +26,17 @@ class MyApp extends StatelessWidget {
         visualDensity: VisualDensity.adaptivePlatformDensity,
         primarySwatch: Colors.blue,
       ),
-      home: Loading(),
-      // initialRoute: '/home',
+      // home: HomeScreen(),
+      initialRoute: '/',
       debugShowCheckedModeBanner: false,
 
       routes: {
-        // '/': (context) => Loading(),
+        '/': (context) => Loading(),
         '/home': (context) => HomeScreen(),
         '/category' : (context) => CategoryScreen(),
         '/profile' : (context) => ProfilePage(),
         '/myProducts' : (context) => MyProducts(),
-        '/cart' : (context) => ListScreen(items: Data.currentUser.purcheses!, title: 'Cart')
+        '/cart' : (context) => ListScreen(items: Data.currentUser.purcheses!, title: 'Cart',)
 
       },
 

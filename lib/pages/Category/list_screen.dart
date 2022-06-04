@@ -5,14 +5,16 @@ import 'package:shop/data/data.dart';
 import 'package:shop/data/item.dart';
 import 'package:shop/pages/Category/widgets/header_sliver.dart';
 import 'package:shop/widgets/app_bottom_navigation.dart';
+import 'package:shop/widgets/theme.dart';
 
 import 'item_page.dart';
 
 class ListScreen extends StatefulWidget {
   String title;
   List<Item> items;
+  bool isFavoritePage;
 
-  ListScreen({Key? key, required this.items, required this.title}) : super(key: key);
+  ListScreen({Key? key, required this.items, required this.title, this.isFavoritePage = false}) : super(key: key);
 
   @override
   _ListScreenState createState() => _ListScreenState();
@@ -22,7 +24,7 @@ class _ListScreenState extends State<ListScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      bottomNavigationBar: AppBarBottomNavigation(),
+      // bottomNavigationBar: AppBarBottomNavigation(),
       backgroundColor: Colors.white,
       body: SafeArea(
         child: CustomScrollView(
@@ -30,8 +32,9 @@ class _ListScreenState extends State<ListScreen> {
             SliverPersistentHeader(
               pinned: true,
               floating: true,
-                delegate: HeaderSliver(maxExtent: 120, minExtent: 120, title: widget.title),
+                delegate: HeaderSliver(maxExtent: 120, minExtent: 120, title: widget.title, isFavoritePage: widget.isFavoritePage),
             ),
+
             SliverGrid.count(crossAxisCount: 2,
               childAspectRatio: 0.65,
               mainAxisSpacing: 14,
@@ -55,6 +58,7 @@ class GridItem extends StatefulWidget {
 }
 
 class _GridItemState extends State<GridItem> {
+  bool tapped = false;
   @override
   Widget build(BuildContext context) {
     return InkWell(
@@ -102,6 +106,21 @@ class _GridItemState extends State<GridItem> {
                         ),
                       ),
                     ),
+                  Positioned(
+                    top: 2,
+                    left: 2,
+                    child: Container(
+                        alignment: Alignment.center,
+                        height: 60,
+                        width: 60,
+                        child: IconButton(iconSize: 15,
+                          icon: tapped? Icon(Icons.favorite_outlined, color: Colors.red,):Icon(Icons.favorite_outline),
+                          onPressed: () {setState(() {
+                            Data.currentUser.favorites!.add(widget.item);
+                            tapped = !tapped;
+                          });; },)
+                    ),
+                  ),
                 ],
               ),
             ),

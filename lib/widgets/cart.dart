@@ -18,7 +18,7 @@ class Cart extends StatelessWidget {
           Container(
             width: 30,
             height: 30,
-            child: Icon(Icons.add_shopping_cart,size:40,),
+            child: Icon(Icons.notifications_none,size:40,),
           ),
           if(numberOfItemsInCart > 0)
           Positioned(

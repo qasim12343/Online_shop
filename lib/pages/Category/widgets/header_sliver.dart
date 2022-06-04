@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/rendering/sliver_persistent_header.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:shop/data/data.dart';
+import 'package:shop/pages/Category/list_screen.dart';
+import 'package:shop/pages/Category/widgets/vertical_seperator.dart';
 import 'package:shop/widgets/cart.dart';
 import 'action_button.dart';
 import 'filter_modal_bottom_sheet.dart';
@@ -11,13 +13,14 @@ class HeaderSliver implements SliverPersistentHeaderDelegate{
   final double minExtent;
   final double maxExtent;
   String title;
+  bool isFavoritePage;
 
-  HeaderSliver({required this.minExtent, required this.maxExtent, required this.title});
+  HeaderSliver({required this.minExtent, required this.maxExtent, required this.title, this.isFavoritePage = true});
 
   @override
   Widget build(BuildContext context, double shrinkOffset, bool overlapsContent) {
 
-    return HeaderH(title: title,);
+    return HeaderH(title: title,isFavoritePage: this.isFavoritePage,);
   }
 
   @override
@@ -41,13 +44,15 @@ class HeaderSliver implements SliverPersistentHeaderDelegate{
 }
 class HeaderH extends StatefulWidget {
   String title;
-  HeaderH({Key? key, required this.title}) : super(key: key);
+  bool isFavoritePage ;
+  HeaderH({Key? key, required this.title, required this.isFavoritePage}) : super(key: key);
 
   @override
   _HeaderHState createState() => _HeaderHState();
 }
 
 class _HeaderHState extends State<HeaderH> {
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -93,6 +98,15 @@ class _HeaderHState extends State<HeaderH> {
                     _settingModelBottomSheet(context);
                   },
                   active: true,
+                ),
+                VerticalSeparator(),
+                if(!widget.isFavoritePage)
+                ActionButton(title: 'Favorites',
+                  iconPath: 'assets/icons/card.svg',
+                  onTap: (){
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context)=>ListScreen(items: Data.currentUser.favorites!, title: 'Favorites',isFavoritePage: true,)));
+                  },
                 ),
               ],
             ),
