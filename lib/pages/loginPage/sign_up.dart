@@ -74,10 +74,15 @@ class _SignUp extends State<SignUp>{
                               ),
                               Container(
                                 padding: EdgeInsets.fromLTRB(80, 80, 0, 0),
-                                child: Icon(
-                                  Icons.add_circle,
+                                child: IconButton(
+                                  icon:Icon(Icons.add_circle),
                                   color: Colors.grey.shade700,
-                                  size: 25.0,
+                                   onPressed: () { setState(() {
+                                     showDialog(context: context, builder: (BuildContext context) {
+                                       return Them().alertDialog('Photo', ' ', context);
+                                     },);
+
+                                   }); },
                                 ),
                               ),
                             ],
@@ -118,7 +123,12 @@ class _SignUp extends State<SignUp>{
                                 "Enter your mobile number"),
                             keyboardType: TextInputType.phone,
                             validator: (val) {
-                              if(!(val!.isEmpty) && !RegExp(r"^((\+98)|(0098)|(0))[0-9]{10}").hasMatch(val)){
+                              bool s = true;
+                              for(int i = 0 ; i < Data.users.length; i++){
+                                if(phoneNumber.value.text == Data.users[i].phoneNumber)
+                                  s = false;
+                              }
+                              if(!(val!.isEmpty) && s &&!RegExp(r"^((\+98)|(0098)|(0))[0-9]{10}").hasMatch(val)){
                                 return "Enter a valid phone number";
                               }
                               return null;
@@ -136,7 +146,7 @@ class _SignUp extends State<SignUp>{
                                     decoration: Them().textInputDecoration(
                                         "Password*", "Enter your password"),
                                     validator: (val) {
-                                      if (val!.length > 7) {
+                                      if (!(val!.length > 7)) {
                                         return "Please enter your password";
                                       }
                                       return null;
@@ -196,25 +206,14 @@ class _SignUp extends State<SignUp>{
                           }
 
                         });
-                        bool s = true;
-                        for(int i = 0 ; i < Data.users.length; i++){
-                          if(phoneNumber.value.text == Data.users[i].phoneNumber)
-                            s = false;
-                        }
-                        if (_formKey.currentState!.validate()&& s) {
+                        if (_formKey.currentState!.validate()) {
                           Navigator.of(context).pushAndRemoveUntil(
                               MaterialPageRoute(
                                   builder: (context) => HomeScreen()
                               ),
                                   (Route<dynamic> route) => false
                           );
-                        }else
-                          showDialog(
-                            context: context,
-                            builder: (BuildContext context) {
-                              return Them().alertDialog("Try again","This phone number is already used.",context);
-                            },
-                          );
+                        }
                       },
                     ),
                   ),

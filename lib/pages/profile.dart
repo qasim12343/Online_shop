@@ -57,7 +57,13 @@ class _ProfilePageState extends State<ProfilePage>{
                 children: [
                   Container(
                     padding: EdgeInsets.all(10),
+                    width: 200,
+                    height: 200,
                     decoration: BoxDecoration(
+                      image: DecorationImage(
+                        fit: BoxFit.cover,
+                        image: AssetImage('assets/images/pf.jpg',),
+                      ),
                       borderRadius: BorderRadius.circular(100),
                       border: Border.all(width: 5, color: Colors.white),
                       color: Colors.white,
@@ -65,7 +71,6 @@ class _ProfilePageState extends State<ProfilePage>{
                         BoxShadow(color: Colors.black12, blurRadius: 20, offset: const Offset(5, 5),),
                       ],
                     ),
-                    child: Icon(Icons.person, size: 80, color: Colors.grey.shade300,),
                   ),
                   SizedBox(height: 20,),
                   Text(Data.currentUser.firstName+' '+Data.currentUser.lastName, style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),),

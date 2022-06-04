@@ -26,7 +26,7 @@ class MyApp extends StatelessWidget {
         visualDensity: VisualDensity.adaptivePlatformDensity,
         primarySwatch: Colors.blue,
       ),
-      home: ItemPage(item:Data.itemsPhone[0],),
+      home: Loading(),
       // initialRoute: '/home',
       debugShowCheckedModeBanner: false,
 

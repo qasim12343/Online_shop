@@ -89,22 +89,25 @@ class _AddProductsState extends State<AddProducts> {
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 Center(
-                  heightFactor: 1.2,
                   child: Stack(
                     children: [Container(
                       height: 200,
-                      width: 200,
+                      width: 300,
                       decoration: BoxDecoration(
-                        color: Colors.grey[400],
-                        shape: BoxShape.circle,
+
+                        shape: BoxShape.rectangle,
                       ),
                       child: Center(child: Text('Add photo of product',style: TextStyle(color: Colors.blue),))
                     ),
                       Positioned(
-                        bottom: 0,
-                        right: 0,
+                        bottom: 20,
+                        right: 125,
                         child: IconButton(
-                          onPressed: (){},
+                          onPressed: (){
+                            setState(() {
+                              Them().alertDialog('Choose Photo', 'add photo', context);
+                            });
+                          },
                            icon:Icon(Icons.add,size: 40.0,),
                       ))
                     ],

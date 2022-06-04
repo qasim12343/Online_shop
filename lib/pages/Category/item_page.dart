@@ -16,6 +16,8 @@ class ItemPage extends StatefulWidget {
 
 class _ItemPageState extends State<ItemPage> {
   bool colorSelected = false;
+  bool colorSelected2 = false;
+  bool colorSelected3 = false;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -61,10 +63,23 @@ class _ItemPageState extends State<ItemPage> {
                           ),
                         ),
                       ),
+                    Positioned(
+                      top: 10,
+                      left: 11,
+                      child: Container(
+                        alignment: Alignment.center,
+                        height: 60,
+                        width: 60,
+                        child: IconButton(iconSize: 15,
+                          icon: SvgPicture.asset('assets/icons/back.svg',),
+                          onPressed: () { Navigator.pop(context); },)
+                        ),
+                      ),
                   ],
                 ),
               ),
-              Padding(
+              Container(
+                color: Colors.lightBlue[50],
                 padding: const EdgeInsets.all(10.0),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -133,6 +148,8 @@ class _ItemPageState extends State<ItemPage> {
                           onTap: (){
                             setState(() {
                               colorSelected = !colorSelected;
+                              colorSelected3 = false;
+                              colorSelected2 = false;
                             });
                           },
                           child: Container(
@@ -151,7 +168,9 @@ class _ItemPageState extends State<ItemPage> {
                           InkWell(
                             onTap: (){
                               setState(() {
-                                colorSelected = !colorSelected;
+                                colorSelected3 = !colorSelected3;
+                                colorSelected = false;
+                                colorSelected2 = false;
                               });
                             },
                             child: Container(
@@ -163,14 +182,16 @@ class _ItemPageState extends State<ItemPage> {
                               height: 40,
                               width: 40,
                               child:
-                              Center(child: colorSelected ? SvgPicture.asset('assets/icons/tick.svg'):null),
+                              Center(child: colorSelected3 ? SvgPicture.asset('assets/icons/tick.svg'):null),
                             ),
                           ),
                           SizedBox(width: 12,),
                           InkWell(
                             onTap: (){
                               setState(() {
-                                colorSelected = !colorSelected;
+                                colorSelected2 = !colorSelected2;
+                                colorSelected = false;
+                                colorSelected3 = false;
                               });
                             },
                             child: Container(
@@ -182,7 +203,7 @@ class _ItemPageState extends State<ItemPage> {
                               height: 40,
                               width: 40,
                               child:
-                              Center(child: colorSelected ? SvgPicture.asset('assets/icons/tick.svg'):null),
+                              Center(child: colorSelected2 ? SvgPicture.asset('assets/icons/tick.svg'):null),
                             ),
                           ),
 

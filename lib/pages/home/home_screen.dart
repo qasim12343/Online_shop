@@ -28,7 +28,7 @@ class _HomeScreenState extends State<HomeScreen> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Header(),
-              Section("Categories",
+              Section("Suggestions",
                   Data.categories.map((e){
                     return CategoryCard(title: e.title, imagePath: e.imagePath,
                         onTap: (){
