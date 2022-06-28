@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -22,14 +24,16 @@ class SignUp extends  StatefulWidget{
 
 
 class _SignUp extends State<SignUp>{
-  TextEditingController fistName = TextEditingController();
+  TextEditingController firstName = TextEditingController();
   TextEditingController lastName = TextEditingController();
   TextEditingController email = TextEditingController();
   TextEditingController password = TextEditingController();
   TextEditingController phoneNumber = TextEditingController();
+  List<Widget> messages = List.empty(growable: true);
 
   final _formKey = GlobalKey<FormState>();
   bool checkboxValue = false;
+
 
   @override
   Widget build(BuildContext context) {
@@ -91,7 +95,7 @@ class _SignUp extends State<SignUp>{
                         SizedBox(height: 30,),
                         Container(
                           child: TextFormField(
-                            controller: fistName,
+                            controller: firstName,
                             decoration: Them().textInputDecoration('First Name', 'Enter your first name'),
                           ),
                         ),
@@ -194,7 +198,7 @@ class _SignUp extends State<SignUp>{
                       onPressed: () {
                         setState(() {
                           User user = User(
-                            firstName : fistName.value.text,
+                            firstName : firstName.value.text,
                             lastName : lastName.value.text,
                             email : email.value.text,
                             password : password.value.text,

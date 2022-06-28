@@ -36,7 +36,7 @@ class MyApp extends StatelessWidget {
         '/category' : (context) => CategoryScreen(),
         '/profile' : (context) => ProfilePage(),
         '/myProducts' : (context) => MyProducts(),
-        '/cart' : (context) => ListScreen(items: Data.currentUser.purcheses!, title: 'Cart',)
+        '/cart' : (context) => ListScreen(items: Data.currentUser.purchases!, title: 'Cart',)
 
       },
 

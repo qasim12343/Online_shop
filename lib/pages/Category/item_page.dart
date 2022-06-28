@@ -219,7 +219,7 @@ class _ItemPageState extends State<ItemPage> {
                                   setState(() {
                                     widget.item.count --;
                                     Data.numberOfItemsInCart++;
-                                    Data.currentUser.purcheses!.add(widget.item);
+                                    Data.currentUser.purchases!.add(widget.item);
                                     widget.item.isMine = true;
                                   });
                                 },
@@ -234,7 +234,7 @@ class _ItemPageState extends State<ItemPage> {
                                 onPressed: () {
                                   setState(() {
                                     Data.numberOfItemsInCart--;
-                                    Data.currentUser.purcheses!.remove(widget.item);
+                                    Data.currentUser.purchases!.remove(widget.item);
                                     widget.item.isMine = false;
 
                                   });

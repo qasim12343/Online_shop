@@ -1,14 +1,87 @@
 import 'dart:core';
+import 'dart:io';
 import 'package:shop/data/category.dart';
 import 'package:shop/data/promotion.dart';
 import 'package:shop/data/user.dart';
 import 'item.dart';
 
 class Data{
-  static int numberOfItemsInCart = currentUser.purcheses!.length;
+  static int numberOfItemsInCart = currentUser.purchases!.length;
   static User currentUser = User(firstName: 'name', password: '', email: 'email', phoneNumber: 'phone');
+  static String jsonString = "";
 
+  sendMessage(String message) async{
+    String request = "send\n" +
+        jsonString+"\u0000";
+    String response;
+    await Socket.connect('10.0.2.2', 4040)
+        .then((serverSocket) {
+      print('connected');
+      // serverSocket.writeln("login");
+      serverSocket.writeln( request); // username
+      // serverSocket.writeln(_pass.text); // pass
 
+      serverSocket.listen((socket) {
+        response =  String.fromCharCodes(socket).trim();
+        print("response is " + response);
+      }).onDone(() {
+        print(" is done");
+        // write your next function here
+      });
+    });
+  }
+// send(String message) async {
+//   String request = "send\n" +
+//              "Info::name:$message,,lastname:ahmad,,password:12345asdfg,,email:qasem.yousifi20@gmail.com,,phone:09926967529" +
+//              "\nFavorite::name:computer,,price:1230000\u0000";
+//
+//   await Socket.connect("localhost",40).then((serverSocket){
+//     serverSocket.write(request);
+//     serverSocket.flush();
+//     serverSocket.listen((response) {
+//       print(String.fromCharCodes(response));
+//       setState(() {
+//         log+=String.fromCharCodes(response)+'\n';
+//
+//       });
+//     });
+//   });
+// }
+  get(String name) async{
+    String request = "get$name\u0000";
+
+    await Socket.connect("10.0.2.2",8000).then((serverSocket){
+      serverSocket.write(request);
+      serverSocket.flush();
+      serverSocket.listen((response) {
+        print(String.fromCharCodes(response));
+      });
+    });
+  }
+
+  addMessages(String str) {
+    List<Map<String, String>> list = stringToMap(str);
+    list.forEach((element) {
+
+    });
+  }
+
+  List<Map<String, String>> stringToMap(String str){
+    List<Map<String, String>> list = List.empty(growable: true);
+    final lines = str.trim().split('\n');
+    lines.forEach((element) {
+      final expr = element.split(",,");
+      Map<String,String> map = {};
+      expr.forEach((el) {
+        int index = el.indexOf(":");
+        String key = el.substring(0,index);
+        String value = el.substring(index+1);
+        map[key] = value;
+      });
+      list.add(map);
+    });
+    return list;
+  }
   static List<User> users = [
     User(
       firstName : "Qasem",
