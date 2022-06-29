@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:io';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -18,9 +19,10 @@ class Loading extends StatefulWidget {
 class _LoadingState extends State<Loading> {
 
    _LoadingState(){
-    new Timer(const Duration(milliseconds: 2000), (){
+    Utilities().get("Users");
+    Utilities().get("Lists");
+    Timer(const Duration(milliseconds: 2000), (){
       setState(() {
-        Utilities().get();
         Utilities().todo();
         Navigator.of(context).pushAndRemoveUntil(
             MaterialPageRoute(builder: (context) => LoginPage()), (route) => false);
@@ -30,6 +32,7 @@ class _LoadingState extends State<Loading> {
 
   @override
   Widget build(BuildContext context) {
+
     return Scaffold(
       backgroundColor: Colors.lightBlueAccent,
       body: Center(

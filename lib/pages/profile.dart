@@ -4,6 +4,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:shop/data/data.dart';
 import 'package:shop/data/user.dart';
+import 'package:shop/data/utilities.dart';
 import 'package:shop/pages/loginPage/login_page.dart';
 
 import '../widgets/theme.dart';
@@ -233,15 +234,20 @@ class _ProfilePageState extends State<ProfilePage>{
                                   width: 150,
                                   decoration: Them().buttonBoxDecoration(context),
                                   child: TextButton(
-                                    onPressed: (){setState(() {
-                                      Data.currentUser = User(
+                                    onPressed: (){
+                                      setState(() {
+                                        int index = Data.users.indexOf(Data.currentUser);
+                                        Data.currentUser = User(
                                           firstName: userName.value.text != ''? userName.value.text: Data.currentUser.firstName+' '+Data.currentUser.lastName,
                                           password: password.value.text != ''? password.value.text: Data.currentUser.password,
                                           email: email.value.text != ''? email.value.text: Data.currentUser.email,
                                           phoneNumber: phoneNumber.value.text != ''? userName.value.text: Data.currentUser.phoneNumber,
                                           lastName: Data.currentUser.lastName
-                                      );
-                                    });
+                                        );
+                                        Data.users[index] = Data.currentUser;
+                                      });
+                                      Utilities().send("Users");
+                                      Utilities().send("Lists");
                                     },
                                     child: Text("Apply changes",style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),),
                                   ),

@@ -12,6 +12,7 @@ class Item {
   double rating;
   bool isMine;
   List<Color>? colors  = [Colors.black12];
+  bool isFavorite;
 
   Map toJson(){
     List<int>? colors =
@@ -26,6 +27,7 @@ class Item {
       'isMine':isMine,
       'count':count,
       'colors':colors,
+      'isFavorite': isFavorite,
     };
   }
   factory Item.fromJson(dynamic json) {
@@ -40,12 +42,12 @@ class Item {
       isMine: json['isMine'] != null ? json['isMine'] as bool: false,
       count: json['count'] != null ? json['count'] as int: 10,
       sellerName: json['sellerName'] != null ? json['sellerName'] as String: 'NamaKala',
-      colors: json['colors'] !=null? colors : [Colors.black12],
+      colors: json['colors'] !=null? colors : [Colors.black12], isFavorite: json['isFavorite'] as bool
     );
   }
 
   Item({required this.name, required this.imagePath, required this.discount, required this.originalPrice,
-      required this.rating,this.isMine = false, this.colors, this.sellerName = 'NamaKala', this.count = 10});
+      required this.rating,this.isMine = false, this.colors, this.sellerName = 'NamaKala', this.count = 10, this.isFavorite = false});
 
   double get Price{
     return discount != 0 ? (originalPrice -(originalPrice*discount/100)):(originalPrice);

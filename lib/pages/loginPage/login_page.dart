@@ -3,6 +3,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:shop/data/data.dart';
 import 'package:shop/data/data.dart';
+import 'package:shop/data/utilities.dart';
 import 'package:shop/pages/loginPage/sign_up.dart';
 import 'package:shop/widgets/theme.dart';
 
@@ -79,6 +80,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
                     style: TextStyle(fontSize: 20),
                   ),
               ),
+              // Text(Data().str),
               Container(
                 padding: const EdgeInsets.all(10),
                 child: TextField(
@@ -117,6 +119,12 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
               ),
               TextButton(
                 onPressed: () {
+                  setState(() {
+                    // Utilities().send("Lists");
+                    // Utilities().send("Users");
+                    print(Utilities().stringToObjLists(Data.listsJsonString).itemsSportClothing[0].sellerName);
+                    print(Data.listsJsonString.substring(Data.listsJsonString.length-10,Data.listsJsonString.length));
+                  });
                   //forgot password screen
                 },
                 child: const Text('Forgot Password',),
@@ -144,7 +152,6 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
                           },
                         );
                       setState(() {
-
                       });
                     },
                     style: Them().buttonStyle(),
@@ -159,6 +166,8 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
                       style: TextStyle(fontSize: 20),
                     ),
                     onPressed: () {
+                      setState(() {
+                      });
                       Navigator.of(context).push(MaterialPageRoute(builder: (context) => SignUp()));
                     },
                   )

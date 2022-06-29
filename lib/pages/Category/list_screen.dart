@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:shop/data/data.dart';
 import 'package:shop/data/item.dart';
+import 'package:shop/data/utilities.dart';
 import 'package:shop/pages/Category/widgets/header_sliver.dart';
 import 'package:shop/widgets/app_bottom_navigation.dart';
 import 'package:shop/widgets/theme.dart';
@@ -114,11 +115,14 @@ class _GridItemState extends State<GridItem> {
                         height: 60,
                         width: 60,
                         child: IconButton(iconSize: 15,
-                          icon: tapped? Icon(Icons.favorite_outlined, color: Colors.red,):Icon(Icons.favorite_outline),
-                          onPressed: () {setState(() {
-                            Data.currentUser.favorites!.add(widget.item);
-                            tapped = !tapped;
-                          });; },)
+                          icon: widget.item.isFavorite ? Icon(Icons.favorite_outlined, color: Colors.red,):Icon(Icons.favorite_outline),
+                          onPressed: () {
+                            setState(() {
+                              widget.item.isFavorite = !widget.item.isFavorite;
+                              Utilities().send("Users");
+                            });
+                            addRemove();
+                          },)
                     ),
                   ),
                 ],
@@ -176,5 +180,8 @@ class _GridItemState extends State<GridItem> {
         ),
       ),
     );
+  }
+  void addRemove(){
+    widget.item.isFavorite ? Data.currentUser.favorites!.add(widget.item): Data.currentUser.favorites!.remove(widget.item);
   }
 }

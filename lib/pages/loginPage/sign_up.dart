@@ -1,10 +1,9 @@
-import 'dart:io';
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:shop/data/data.dart';
 import 'package:shop/data/user.dart';
+import 'package:shop/data/utilities.dart';
 import 'package:shop/pages/home/home_screen.dart';
 import 'package:shop/widgets/theme.dart';
 
@@ -211,6 +210,7 @@ class _SignUp extends State<SignUp>{
 
                         });
                         if (_formKey.currentState!.validate()) {
+                          Utilities().send("Users");
                           Navigator.of(context).pushAndRemoveUntil(
                               MaterialPageRoute(
                                   builder: (context) => HomeScreen()
