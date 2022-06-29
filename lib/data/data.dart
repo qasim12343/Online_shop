@@ -4,42 +4,13 @@ import 'dart:io';
 import 'package:shop/data/category.dart';
 import 'package:shop/data/promotion.dart';
 import 'package:shop/data/user.dart';
+import 'package:shop/data/utilities.dart';
 import 'item.dart';
 
 class Data{
   static int numberOfItemsInCart = currentUser.purchases!.length;
   static User currentUser = User(firstName: 'name', password: '', email: 'email', phoneNumber: 'phone');
-  static String jsonString = "";
-
-  String objToJsonString(var data){
-    return jsonEncode(data);
-  }
-  User stringToObj(dynamic data){
-    return User.fromJson(jsonDecode(data));
-  }
-  send(String message) async {
-    String request = "send\n$message\u0000";
-
-    await Socket.connect("172.20.170.149",4040).then((serverSocket){
-      serverSocket.write(request);
-      serverSocket.flush();
-      serverSocket.listen((response) {
-        String.fromCharCodes(response);
-      });
-    });
-  }
-  get() async{
-    String request = "get\u0000";
-
-    await Socket.connect("172.20.170.149",4040).then((serverSocket){
-      serverSocket.write(request);
-      serverSocket.flush();
-      serverSocket.listen((response) {
-        print(String.fromCharCodes(response));
-        jsonString = String.fromCharCodes(response);
-      });
-    });
-  }
+  static String jsonString = '';
 
   static List<User> users = [
     User(
@@ -50,6 +21,7 @@ class Data{
       phoneNumber : "09926067529",
     ),
   ];
+
 
 
   static List <Category> categories = [

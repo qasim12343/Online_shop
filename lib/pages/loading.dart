@@ -4,6 +4,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:shop/data/data.dart';
+import 'package:shop/data/utilities.dart';
 
 import 'loginPage/login_page.dart';
 
@@ -16,10 +17,11 @@ class Loading extends StatefulWidget {
 
 class _LoadingState extends State<Loading> {
 
-
    _LoadingState(){
     new Timer(const Duration(milliseconds: 2000), (){
       setState(() {
+        Utilities().get();
+        Utilities().todo();
         Navigator.of(context).pushAndRemoveUntil(
             MaterialPageRoute(builder: (context) => LoginPage()), (route) => false);
       });

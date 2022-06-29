@@ -9,4 +9,7 @@ class Category {
     'imagePath': imagePath,
     'title': title,
   };
+  factory Category.fromJson(dynamic json){
+    return Category(json['imagePath'] as String, json['title'] as String);
+  }
 }

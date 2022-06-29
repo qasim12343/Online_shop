@@ -22,11 +22,23 @@ class Promotion{
         this.list != null? this.list!.map((e) => e.toJson()).toList(): [];
     return{
       'imagePath': imagePath,
-      'titel': title,
+      'title': title,
       'subtitle': subtitle,
       'tag': tag,
       'caption': caption,
       'list': list,
     };
+  }
+  factory Promotion.fromJson(dynamic json){
+    var jsonList = json['list'] as List;
+    List<Item> list = jsonList.map((e) => Item.fromJson(e)).toList();
+    return Promotion(
+      title: json['title'] as String,
+      caption: json['caption'] as String,
+      subtitle: json['subtitle'] as String,
+      tag: json['tag'] as String,
+      imagePath: json['imagePath'] as String,
+      list: list,
+    );
   }
 }
