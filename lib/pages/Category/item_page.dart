@@ -72,7 +72,7 @@ class _ItemPageState extends State<ItemPage> {
                         width: 60,
                         child: IconButton(iconSize: 15,
                           icon: SvgPicture.asset('assets/icons/back.svg',),
-                          onPressed: () { Navigator.pop(context); },)
+                          onPressed: () { Navigator.pushReplacementNamed(context, '/home'); },)
                         ),
                       ),
                   ],

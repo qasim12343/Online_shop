@@ -25,7 +25,7 @@ class MyApp extends StatelessWidget {
         visualDensity: VisualDensity.adaptivePlatformDensity,
         primarySwatch: Colors.blue,
       ),
-      // home: AddProducts(),
+      // home: ProfilePage(),
       initialRoute: '/',
       debugShowCheckedModeBanner: false,
 

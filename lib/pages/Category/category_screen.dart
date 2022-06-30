@@ -38,7 +38,7 @@ class _CategoryScreenState extends State<CategoryScreen> {
                       tag: e.tag,
                       caption: e.caption,
                       onTap: () {
-                        Navigator.push(context, MaterialPageRoute(
+                        Navigator.pushReplacement(context, MaterialPageRoute(
                             builder: (context) => ListScreen(items: e.list!, title: e.tag,)));
                       },
                     );
@@ -52,7 +52,7 @@ class _CategoryScreenState extends State<CategoryScreen> {
                       tag: e.tag,
                       caption: e.caption,
                       onTap: () {
-                      Navigator.push(context, MaterialPageRoute(
+                      Navigator.pushReplacement(context, MaterialPageRoute(
                           builder: (context) => ListScreen(items: e.list!, title: e.tag,)));
                       },
                     );
@@ -67,7 +67,7 @@ class _CategoryScreenState extends State<CategoryScreen> {
                       tag: e.tag,
                       caption: e.caption,
                       onTap: () {
-                        Navigator.push(context, MaterialPageRoute(
+                        Navigator.pushReplacement(context, MaterialPageRoute(
                             builder: (context) => ListScreen(items: e.list!, title: e.tag,)));
                       },
                     );
@@ -81,7 +81,7 @@ class _CategoryScreenState extends State<CategoryScreen> {
                       tag: e.tag,
                       caption: e.caption,
                       onTap: () {
-                        Navigator.push(context, MaterialPageRoute(
+                        Navigator.pushReplacement(context, MaterialPageRoute(
                             builder: (context) => ListScreen(items: e.list!, title: e.tag,)));
                       },
                     );

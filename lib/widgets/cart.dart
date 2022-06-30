@@ -11,7 +11,7 @@ class Cart extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: (){
-        Navigator.push(context, MaterialPageRoute(builder: (context)=> ListScreen(items: Data.currentUser.purchases!, title: 'Purchases')),);
+        Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=> ListScreen(items: Data.currentUser.purchases!, title: 'Purchases')),);
       },
       child: Stack(
         clipBehavior: Clip.none, children: [

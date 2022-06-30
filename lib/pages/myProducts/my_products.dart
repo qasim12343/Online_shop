@@ -22,7 +22,7 @@ class _MyProductsState extends State<MyProducts> {
       floatingActionButton: FloatingActionButton(
         child: Text('Add'),
         onPressed: (){
-          Navigator.push(context, MaterialPageRoute(builder: (context)=>AddProducts()));
+          Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>AddProducts()));
         },
       ),
     );
@@ -242,7 +242,7 @@ class _BottomCategorySheetState extends State<BottomCategorySheet> {
                     child: InkWell(
                       child: Icon(Icons.close),
                       onTap: (){
-                        Navigator.pop(context);
+                        Navigator.pushReplacementNamed(context,'/home');
                       },
                     ),
                   ),
@@ -272,7 +272,7 @@ class _BottomCategorySheetState extends State<BottomCategorySheet> {
               width: double.infinity,
               child: ElevatedButton(
                   onPressed: (){
-                    Navigator.pop(context);
+                    Navigator.pushReplacementNamed(context,'/home');
                   },
                   child: Text('Apply')),
             )

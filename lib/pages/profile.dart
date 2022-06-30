@@ -5,6 +5,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:shop/data/data.dart';
 import 'package:shop/data/user.dart';
 import 'package:shop/data/utilities.dart';
+import 'package:shop/pages/home/home_screen.dart';
 import 'package:shop/pages/loginPage/login_page.dart';
 
 import '../widgets/theme.dart';
@@ -31,6 +32,16 @@ class _ProfilePageState extends State<ProfilePage>{
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        leading: Container(
+            child: IconButton(
+              icon: Icon(Icons.arrow_back),
+              onPressed: () {
+                setState(() {
+                  Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=> HomeScreen()));
+                });
+              },
+            )
+        ),
         title: Text("Profile Page",
             style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
           ),
@@ -83,7 +94,7 @@ class _ProfilePageState extends State<ProfilePage>{
                       children: <Widget>[
                         InkWell(
                           onTap: (){
-                            Navigator.push(context,
+                            Navigator.pushReplacement(context,
                                 MaterialPageRoute(
                                     builder: (context)=>ListScreen(
                                       items: Data.currentUser.favorites!,
@@ -259,7 +270,7 @@ class _ProfilePageState extends State<ProfilePage>{
                           child: TextButton(
                             onPressed: (){setState(() {
                               Utilities().send("Users");
-                              Navigator.push(context, MaterialPageRoute(builder:(context)=>LoginPage()));
+                              Navigator.pushReplacement(context, MaterialPageRoute(builder:(context)=>LoginPage()));
                             });
                             },
                             child: Text("Log out",style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),),

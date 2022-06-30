@@ -208,20 +208,6 @@ class _SignUp extends State<SignUp>{
                         ),
                       ),
                       onPressed: () {
-                        setState(() {
-                          User user = User(
-                            firstName : firstName.value.text,
-                            lastName : lastName.value.text,
-                            email : email.value.text,
-                            password : password.value.text,
-                            phoneNumber : phoneNumber.value.text,
-                          );
-                          if(!Data.users.contains(user)){
-                            Data.users.add(user);
-                            Data.currentUser = user;
-                          }
-
-                        });
                         if (_formKey.currentState!.validate()) {
                           User user = User(
                             firstName : firstName.value.text,

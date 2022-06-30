@@ -76,7 +76,7 @@ class _HeaderHState extends State<HeaderH> {
                   child: InkWell(
                     child: SvgPicture.asset('assets/icons/back.svg',),
                     onTap: ((){
-                      Navigator.pop(context);
+                      Navigator.pushReplacementNamed(context,'/home');
                     }),
                   ),
                 ),

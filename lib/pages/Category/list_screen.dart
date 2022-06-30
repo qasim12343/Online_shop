@@ -64,7 +64,7 @@ class _GridItemState extends State<GridItem> {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: (){
-        Navigator.push(context, MaterialPageRoute(builder: (context)=>ItemPage(item: widget.item,)));
+        Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>ItemPage(item: widget.item,)));
       },
       child: Container(
         padding: EdgeInsets.all(8),

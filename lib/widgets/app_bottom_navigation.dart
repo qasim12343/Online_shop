@@ -43,7 +43,7 @@ class _AppBarBottomNavigationState extends State<AppBarBottomNavigation> {
   void _onTapped(int index){
     setState(() {
       selectedItem = index;
-      Navigator.pushNamed(context, meneItems[index]['page']);
+      Navigator.pushReplacementNamed(context, meneItems[index]['page']);
     });
   }
   @override
