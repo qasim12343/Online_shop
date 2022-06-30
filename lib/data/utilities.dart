@@ -44,7 +44,7 @@ class Utilities{
     String data = field == 'Users'? objToJsonString(Data.users): objToJsonString(Data.obj);
     String request = "send$field\n$data\u0000";
 
-    await Socket.connect("172.20.170.149",4040).then((serverSocket){
+    await Socket.connect("172.20.170.149",4050).then((serverSocket){
       serverSocket.write(request);
       serverSocket.flush();
       serverSocket.listen((response) {
@@ -55,7 +55,7 @@ class Utilities{
   get(String field) async{
     String request = "get$field\u0000";
 
-    await Socket.connect("172.20.170.149",4040).then((serverSocket){
+    await Socket.connect("172.20.170.149",4050).then((serverSocket){
       serverSocket.write(request);
       serverSocket.flush();
       serverSocket.listen((response) {

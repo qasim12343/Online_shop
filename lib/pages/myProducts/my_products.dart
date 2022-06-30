@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:shop/data/data.dart';
 import 'package:shop/data/item.dart';
+import 'package:shop/data/utilities.dart';
 import 'package:shop/pages/Category/list_screen.dart';
 import 'package:shop/widgets/my_colors.dart';
 import '../../widgets/theme.dart';
@@ -38,11 +39,12 @@ class AddProducts extends StatefulWidget {
 }
 
 class _AddProductsState extends State<AddProducts> {
+  Item ?newProduct;
   TextEditingController name = TextEditingController();
   TextEditingController discount = TextEditingController();
   TextEditingController price = TextEditingController();
-  TextEditingController colors = TextEditingController();
-  TextEditingController category = TextEditingController();
+  TextEditingController rating = TextEditingController();
+  TextEditingController imagePath = TextEditingController();
 
   ListTile listTile(
       TextEditingController input,
@@ -80,6 +82,17 @@ class _AddProductsState extends State<AddProducts> {
     return Scaffold(
       appBar: AppBar(
         title: Text("Register your product"),
+        leading: Container(
+          child: IconButton(
+            icon: Icon(Icons.arrow_back),
+            onPressed: () { 
+              setState(() {
+                Navigator.pushReplacementNamed(context, '/myProducts');
+              });
+            },
+            
+          ),
+        ),
       ),
       body: Padding(
         padding: const EdgeInsets.all(8.0),
@@ -147,7 +160,11 @@ class _AddProductsState extends State<AddProducts> {
                                       SizedBox(height: 10,),
                                       listTile(price, '', 'Enter your price', 'Empty'),
                                       SizedBox(height: 10,),
-                                      listTile(discount, '', 'Add more details', ''),
+                                      listTile(discount, '', 'Discount', ''),
+                                      SizedBox(height: 10,),
+                                      listTile(rating, '', 'Rating', ''),
+                                      SizedBox(height: 10,),
+                                      listTile(imagePath, '', 'imagePath', ''),
                                       SizedBox(height: 10,),
                                       Text('Colors'),
                                       MyColorList(colors: [Colors.white, Colors.red,Colors.blue,Colors.black,
@@ -177,7 +194,7 @@ class _AddProductsState extends State<AddProducts> {
                                                     return BottomCategorySheet();
                                                   }
                                               );
-                                              // Utilities().send("Users");
+                                              //
                                               // Utilities().send("Lists");
                                             });
                                           },
@@ -195,13 +212,17 @@ class _AddProductsState extends State<AddProducts> {
                         width: 300,
                         decoration: Them().buttonBoxDecoration(context),
                         child: TextButton(
-                            onPressed: (){setState(() {
-                              Data.currentUser.myProducts!.add(Item(
-                                name: name.value.text,
-                                imagePath: '', rating: 0, discount: 0, originalPrice: price.value.text as double,
+                            onPressed: (){
+                              newProduct = Item(name: name.text, imagePath: imagePath.text,
+                                  discount: int.parse(discount.text), originalPrice: double.parse(price.text), rating: double.parse(rating.text));
+                              setState(() {
 
-                              ));
-                            });
+                                Data.currentUser.myProducts!.add(newProduct!);
+                                int index = Data.users.indexOf(Data.currentUser);
+                                Data.users[index] = Data.currentUser;
+                                Utilities().send("Users");
+                                Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=> MyProducts()));
+                              });
                             },
                             child: Text("Add",style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),)
                         ),
@@ -272,7 +293,7 @@ class _BottomCategorySheetState extends State<BottomCategorySheet> {
               width: double.infinity,
               child: ElevatedButton(
                   onPressed: (){
-                    Navigator.pushReplacementNamed(context,'/home');
+                    Navigator.pop(context);
                   },
                   child: Text('Apply')),
             )

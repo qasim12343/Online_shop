@@ -26,13 +26,6 @@
 //   void setUsers(List<User> us){
 //     users = us;
 //   }
-//
-//   // static List <Category> categories = Utilities().stringToObjLists(listsJsonString).categories;
-//   //
-//   // static List<Promotion> digital = Utilities().stringToObjLists(listsJsonString).digital;
-//   //
-//   // static List<Promotion> clothing = Utilities().stringToObjLists(listsJsonString).clothing;
-//   // static List<Promotion> book = Utilities().stringToObjLists(listsJsonString).book;
 //   static List<Promotion> sport = [
 //     Promotion(
 //         tag: 'Sport clothing',
@@ -50,27 +43,9 @@
 //         list: itemsTravel
 //     ),
 //   ];
-//
-//   // static List<Promotion> promotions = Utilities().stringToObjLists(listsJsonString).promotions;
-//
-// /// Digital items
-//
-// //   static List<Item> itemsPhone = Utilities().stringToObjLists(listsJsonString).itemsPhone;
-// //   static List<Item> itemsComputer = Utilities().stringToObjLists(listsJsonString).itemsComputer;
-// //   static List<Item> itemsCameras = Utilities().stringToObjLists(listsJsonString).itemsCameras;
-// //
-// // /// Clothing items
-// //
-// //  static List<Item> itemsMen = Utilities().stringToObjLists(listsJsonString).itemsMen;
-// //   static List<Item> itemsWomen = Utilities().stringToObjLists(listsJsonString).itemsWomen;
-// //   static List<Item> itemsKids = Utilities().stringToObjLists(listsJsonString).itemsMen;
-// //
+
 // //   /// Book items
 // //
-// //   static List<Item> itemsMusic = Utilities().stringToObjLists(listsJsonString).itemsMusic;
-// //
-// //   static List<Item> itemsBook = Utilities().stringToObjLists(listsJsonString).itemsBook;
-// //   static List<Item> itemsStationary = Utilities().stringToObjLists(listsJsonString).itemsStationary;
 //   static List<User> users = [
 //     User(
 //       firstName : "Qasem",
