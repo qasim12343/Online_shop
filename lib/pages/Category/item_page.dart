@@ -236,6 +236,7 @@ class _ItemPageState extends State<ItemPage> {
                                 onPressed: () {
                                   setState(() {
                                     Data.numberOfItemsInCart--;
+                                    widget.item.count ++;
                                     Data.currentUser.purchases!.remove(widget.item);
                                     widget.item.isMine = false;
                                     Utilities().send("Users");
