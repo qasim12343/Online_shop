@@ -122,8 +122,8 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
                   setState(() {
                     // Utilities().send("Lists");
                     // Utilities().send("Users");
-                    print(Utilities().stringToObjLists(Data.listsJsonString).itemsSportClothing[0].sellerName);
-                    print(Data.listsJsonString.substring(Data.listsJsonString.length-10,Data.listsJsonString.length));
+                    // print(Utilities().stringToObjLists(Data.listsJsonString).itemsSportClothing[0].sellerName);
+                    // print(Data.listsJsonString.substring(Data.listsJsonString.length-10,Data.listsJsonString.length));
                   });
                   //forgot password screen
                 },

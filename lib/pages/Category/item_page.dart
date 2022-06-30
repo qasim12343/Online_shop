@@ -4,7 +4,6 @@ import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:shop/data/data.dart';
 import 'package:shop/data/item.dart';
-import 'package:shop/widgets/theme.dart';
 
 class ItemPage extends StatefulWidget {
   Item item;

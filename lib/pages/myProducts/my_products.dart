@@ -2,9 +2,13 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:shop/data/data.dart';
 import 'package:shop/data/item.dart';
+import 'package:shop/data/utilities.dart';
 import 'package:shop/pages/Category/list_screen.dart';
+import 'package:shop/pages/Category/widgets/filter_list.dart';
+import 'package:shop/widgets/my_colors.dart';
 
-import '../widgets/theme.dart';
+import '../../widgets/theme.dart';
+import '../Category/widgets/filter_modal_bottom_sheet.dart';
 
 class MyProducts extends StatefulWidget {
   const MyProducts({Key? key}) : super(key: key);
@@ -39,7 +43,7 @@ class AddProducts extends StatefulWidget {
 
 class _AddProductsState extends State<AddProducts> {
   TextEditingController name = TextEditingController();
-  TextEditingController detials = TextEditingController();
+  TextEditingController details = TextEditingController();
   TextEditingController price = TextEditingController();
   TextEditingController colors = TextEditingController();
   TextEditingController category = TextEditingController();
@@ -147,11 +151,26 @@ class _AddProductsState extends State<AddProducts> {
                                       SizedBox(height: 10,),
                                       listTile(price, '', 'Enter your price', 'Empty'),
                                       SizedBox(height: 10,),
-                                      listTile(detials, '', 'Add more details', ''),
+                                      listTile(details, '', 'Add more details', ''),
                                       SizedBox(height: 10,),
-                                      listTile(colors, '', 'Add colors of your product', 'No color added'),
+                                      Text('Colors'),
+                                      MyColorList(colors: [Colors.white, Colors.red,Colors.blue,Colors.black,
+                                        Colors.green, Colors.amber, Colors.orange,Colors.deepPurple]),
                                       SizedBox(height: 10,),
                                       listTile(category, '', 'Enter category of your product', 'No category added'),
+                                      SizedBox(height: 10,),
+                                      Container(
+                                        height: 35,
+                                        child: InkWell(
+                                          child:Text('click'),
+                                          onTap: (){
+                                            setState(() {
+                                              Utilities().send("Users");
+                                              Utilities().send("Lists");
+                                            });
+                                          },
+                                        ),
+                                      )
                                     ],
                                   ),
                                 ],
