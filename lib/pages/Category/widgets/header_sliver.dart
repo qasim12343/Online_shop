@@ -95,7 +95,7 @@ class _HeaderHState extends State<HeaderH> {
                 ActionButton(title: 'Filter',
                   iconPath: 'assets/icons/controls.svg',
                   onTap: (){
-                    _settingModelBottomSheet(context);
+                    settingModelBottomSheet(context);
                   },
                   active: true,
                 ),
@@ -116,7 +116,7 @@ class _HeaderHState extends State<HeaderH> {
   }
 }
 
-void _settingModelBottomSheet(context){
+void settingModelBottomSheet(context){
   showModalBottomSheet(
       shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.only(

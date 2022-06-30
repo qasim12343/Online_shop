@@ -237,17 +237,13 @@ class _ProfilePageState extends State<ProfilePage>{
                                     onPressed: (){
                                       setState(() {
                                         int index = Data.users.indexOf(Data.currentUser);
-                                        Data.currentUser = User(
-                                          firstName: userName.value.text != ''? userName.value.text: Data.currentUser.firstName+' '+Data.currentUser.lastName,
-                                          password: password.value.text != ''? password.value.text: Data.currentUser.password,
-                                          email: email.value.text != ''? email.value.text: Data.currentUser.email,
-                                          phoneNumber: phoneNumber.value.text != ''? userName.value.text: Data.currentUser.phoneNumber,
-                                          lastName: Data.currentUser.lastName
-                                        );
+                                        Data.currentUser.firstName = userName.text != ''? userName.text: Data.currentUser.firstName;
+                                        Data.currentUser.password = password.text != ''? password.text: Data.currentUser.password;
+                                        Data.currentUser.email = email.text != ''? email.text: Data.currentUser.email;
+                                        Data.currentUser.phoneNumber = phoneNumber.text != ''? phoneNumber.text: Data.currentUser.phoneNumber;
                                         Data.users[index] = Data.currentUser;
                                       });
                                       Utilities().send("Users");
-                                      Utilities().send("Lists");
                                     },
                                     child: Text("Apply changes",style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),),
                                   ),
@@ -262,6 +258,7 @@ class _ProfilePageState extends State<ProfilePage>{
                           decoration: Them().buttonBoxDecoration(context),
                           child: TextButton(
                             onPressed: (){setState(() {
+                              Utilities().send("Users");
                               Navigator.push(context, MaterialPageRoute(builder:(context)=>LoginPage()));
                             });
                             },

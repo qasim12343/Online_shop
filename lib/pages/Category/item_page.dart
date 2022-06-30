@@ -4,6 +4,7 @@ import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:shop/data/data.dart';
 import 'package:shop/data/item.dart';
+import 'package:shop/data/utilities.dart';
 
 class ItemPage extends StatefulWidget {
   Item item;
@@ -220,7 +221,9 @@ class _ItemPageState extends State<ItemPage> {
                                     Data.numberOfItemsInCart++;
                                     Data.currentUser.purchases!.add(widget.item);
                                     widget.item.isMine = true;
+                                    Utilities().send('Users');
                                   });
+
                                 },
                                 child: Row(
                                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -235,7 +238,7 @@ class _ItemPageState extends State<ItemPage> {
                                     Data.numberOfItemsInCart--;
                                     Data.currentUser.purchases!.remove(widget.item);
                                     widget.item.isMine = false;
-
+                                    Utilities().send("Users");
                                   });
                                 },
                                 child: Row(

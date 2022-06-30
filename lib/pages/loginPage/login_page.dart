@@ -26,7 +26,7 @@ class MyStatefulWidget extends StatefulWidget {
 }
 
 class _MyStatefulWidgetState extends State<MyStatefulWidget> {
-  TextEditingController nameController = TextEditingController();
+  TextEditingController phoneNumberController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
   bool rightLogIn = false;
   bool visible = false;
@@ -83,9 +83,9 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
               // Text(Data().str),
               Container(
                 padding: const EdgeInsets.all(10),
-                child: TextField(
-                  controller: nameController,
-                  decoration: Them().textInputDecoration("Username","Enter your username")
+                child: TextFormField(
+                  controller: phoneNumberController,
+                  decoration: Them().textInputDecoration("Phone number","Enter your phone number")
                 ),
               ),
               Builder(
@@ -122,7 +122,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
                   setState(() {
                     // Utilities().send("Lists");
                     // Utilities().send("Users");
-                    // print(Utilities().stringToObjLists(Data.listsJsonString).itemsSportClothing[0].sellerName);
+                    // print(Utilities().stringToListUser(Data.usersJsonString)[0].phoneNumber);
                     // print(Data.listsJsonString.substring(Data.listsJsonString.length-10,Data.listsJsonString.length));
                   });
                   //forgot password screen
@@ -137,7 +137,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
                     child: const Text('Login',style: TextStyle(color: Colors.blue),),
                     onPressed: () {
                       for(int i = 0; i< Data.users.length; i++){
-                        if(Data.users[i].firstName == nameController.value.text &&
+                        if(Data.users[i].phoneNumber == phoneNumberController.value.text &&
                             Data.users[i].password == passwordController.value.text){
                           rightLogIn = true;
                           Data.currentUser = Data.users[i];

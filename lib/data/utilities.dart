@@ -40,6 +40,7 @@ class Utilities{
     }
   }
   send(String field) async {
+
     String data = field == 'Users'? objToJsonString(Data.users): objToJsonString(Data.obj);
     String request = "send$field\n$data\u0000";
 

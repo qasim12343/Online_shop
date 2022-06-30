@@ -94,6 +94,12 @@ class _SignUp extends State<SignUp>{
                         SizedBox(height: 30,),
                         Container(
                           child: TextFormField(
+                            validator: (val) {
+                              if((val!.isEmpty)){
+                                return "Enter a valid name";
+                              }
+                              return null;
+                            },
                             controller: firstName,
                             decoration: Them().textInputDecoration('First Name', 'Enter your first name'),
                           ),
@@ -101,6 +107,12 @@ class _SignUp extends State<SignUp>{
                         SizedBox(height: 30,),
                         Container(
                           child: TextFormField(
+                            validator: (val) {
+                              if((val!.isEmpty)){
+                                return "Enter a valid lastname";
+                              }
+                              return null;
+                            },
                             controller: lastName,
                             decoration: Them().textInputDecoration('Last Name', 'Enter your last name'),
                           ),
@@ -128,11 +140,12 @@ class _SignUp extends State<SignUp>{
                             validator: (val) {
                               bool s = true;
                               for(int i = 0 ; i < Data.users.length; i++){
-                                if(phoneNumber.value.text == Data.users[i].phoneNumber)
+                                if(phoneNumber.text == Data.users[i].phoneNumber) {
                                   s = false;
+                                }
                               }
-                              if(!(val!.isEmpty) && s &&!RegExp(r"^((\+98)|(0098)|(0))[0-9]{10}").hasMatch(val)){
-                                return "Enter a valid phone number";
+                                if((!(val!.isEmpty) &&!RegExp(r"^((\+98)|(0098)|(0))[0-9]{10}").hasMatch(val))|| !s){
+                                  return "Enter a valid phone number";
                               }
                               return null;
                             },
@@ -210,6 +223,17 @@ class _SignUp extends State<SignUp>{
 
                         });
                         if (_formKey.currentState!.validate()) {
+                          User user = User(
+                            firstName : firstName.value.text,
+                            lastName : lastName.value.text,
+                            email : email.value.text,
+                            password : password.value.text,
+                            phoneNumber : phoneNumber.value.text,
+                          );
+                          if(!Data.users.contains(user)){
+                            Data.users.add(user);
+                            Data.currentUser = user;
+                          }
                           Utilities().send("Users");
                           Navigator.of(context).pushAndRemoveUntil(
                               MaterialPageRoute(

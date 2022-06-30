@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:shop/pages/Category/category_screen.dart';
-import 'package:shop/pages/Category/item_page.dart';
 import 'package:shop/pages/Category/list_screen.dart';
 import 'package:shop/pages/myProducts/my_products.dart';
 import 'package:shop/pages/home/home_screen.dart';

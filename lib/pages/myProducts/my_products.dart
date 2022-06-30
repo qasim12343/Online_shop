@@ -2,13 +2,9 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:shop/data/data.dart';
 import 'package:shop/data/item.dart';
-import 'package:shop/data/utilities.dart';
 import 'package:shop/pages/Category/list_screen.dart';
-import 'package:shop/pages/Category/widgets/filter_list.dart';
 import 'package:shop/widgets/my_colors.dart';
-
 import '../../widgets/theme.dart';
-import '../Category/widgets/filter_modal_bottom_sheet.dart';
 
 class MyProducts extends StatefulWidget {
   const MyProducts({Key? key}) : super(key: key);
@@ -43,7 +39,7 @@ class AddProducts extends StatefulWidget {
 
 class _AddProductsState extends State<AddProducts> {
   TextEditingController name = TextEditingController();
-  TextEditingController details = TextEditingController();
+  TextEditingController discount = TextEditingController();
   TextEditingController price = TextEditingController();
   TextEditingController colors = TextEditingController();
   TextEditingController category = TextEditingController();
@@ -151,22 +147,38 @@ class _AddProductsState extends State<AddProducts> {
                                       SizedBox(height: 10,),
                                       listTile(price, '', 'Enter your price', 'Empty'),
                                       SizedBox(height: 10,),
-                                      listTile(details, '', 'Add more details', ''),
+                                      listTile(discount, '', 'Add more details', ''),
                                       SizedBox(height: 10,),
                                       Text('Colors'),
                                       MyColorList(colors: [Colors.white, Colors.red,Colors.blue,Colors.black,
                                         Colors.green, Colors.amber, Colors.orange,Colors.deepPurple]),
                                       SizedBox(height: 10,),
-                                      listTile(category, '', 'Enter category of your product', 'No category added'),
-                                      SizedBox(height: 10,),
                                       Container(
                                         height: 35,
                                         child: InkWell(
-                                          child:Text('click'),
+                                          child:Row(
+                                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                            children: [
+                                              Text('Select Category', style: TextStyle(fontSize:20)),
+                                              Icon(Icons.arrow_forward),
+                                            ],
+                                          ),
                                           onTap: (){
                                             setState(() {
-                                              Utilities().send("Users");
-                                              Utilities().send("Lists");
+                                              showModalBottomSheet(
+                                                  shape: RoundedRectangleBorder(
+                                                      borderRadius: BorderRadius.only(
+                                                        topLeft: Radius.circular(9),
+                                                        topRight: Radius.circular(9),
+                                                      )
+                                                  ),
+                                                  context: context,
+                                                  builder: (BuildContext bc){
+                                                    return BottomCategorySheet();
+                                                  }
+                                              );
+                                              // Utilities().send("Users");
+                                              // Utilities().send("Lists");
                                             });
                                           },
                                         ),
@@ -201,6 +213,149 @@ class _AddProductsState extends State<AddProducts> {
             ),
         ),
       ),
+    );
+  }
+}
+class BottomCategorySheet extends StatefulWidget {
+  const BottomCategorySheet({Key? key}) : super(key: key);
+
+  @override
+  State<BottomCategorySheet> createState() => _BottomCategorySheetState();
+}
+
+class _BottomCategorySheetState extends State<BottomCategorySheet> {
+  @override
+  Widget build(BuildContext context) {
+    var size = MediaQuery.of(context).size;
+    return SingleChildScrollView(
+      child: Padding(
+        padding: const EdgeInsets.all(10.0),
+        child: Wrap(
+          children: [
+            Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  Container(
+                    alignment: Alignment.centerLeft,
+                    padding: EdgeInsets.all(4),
+                    child: InkWell(
+                      child: Icon(Icons.close),
+                      onTap: (){
+                        Navigator.pop(context);
+                      },
+                    ),
+                  ),
+                  Text('Filter',textAlign: TextAlign.center,),
+                  Container(
+                    alignment: Alignment.centerRight,
+                    child: InkWell(
+                      child: Text('Reset',textAlign: TextAlign.center,
+                        style: TextStyle(color: Colors.blue),),
+                      onTap: (){
+                      },
+                    ),
+                  )
+                ]
+            ),
+            Padding(
+              padding: const EdgeInsets.only(top: 20,),
+              child: Text('Select category', style: TextStyle(fontSize: 20),),
+            ),
+            FilterCategoryList(names: [
+                "Clothing - Men","Clothing - Women","Clothing - Kids",
+                "Digital - Phone","Digital - Cameras","Digital - Computer",
+                'Book - Music','Book - Book','Book - Stationary',
+                'Sport - SportClothing','Sport - SportEquipments','Sport - Travel',
+            ]),
+            Container(
+              width: double.infinity,
+              child: ElevatedButton(
+                  onPressed: (){
+                    Navigator.pop(context);
+                  },
+                  child: Text('Apply')),
+            )
+          ],
+        ),
+      ),
+    );
+  }
+}
+class FilterCategoryList extends StatefulWidget {
+  List<String> names;
+  FilterCategoryList({Key? key, required this.names}) : super(key: key);
+
+  @override
+  State<FilterCategoryList> createState() => _FilterCategoryListState();
+}
+
+class _FilterCategoryListState extends State<FilterCategoryList> {
+
+  @override
+
+  Widget build(BuildContext context) {
+    return Padding(
+        padding: const EdgeInsets.all(10.0),
+        child: Container(
+          height: 150,
+          decoration: BoxDecoration(
+            // shape: BoxShape.rectangle,
+              borderRadius: BorderRadius.circular(200)
+          ),
+          child: ListView.builder(
+              scrollDirection: Axis.vertical,
+              itemCount: widget.names.length,
+              itemBuilder: (context, index){
+                return ACategory(name: widget.names[index]);
+              }),
+        )
+    );
+  }
+}
+class ACategory extends StatefulWidget {
+  bool isSelected ;
+  String name;
+  ACategory({Key? key,this.isSelected = false , required this.name}) : super(key: key);
+
+  @override
+  State<ACategory> createState() => _ACategoryState();
+}
+
+class _ACategoryState extends State<ACategory> {
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text('------------------------------------'),
+        SizedBox(
+          height: 30,
+          child: InkWell(
+            onTap: (){
+              setState(() {
+                widget.isSelected = !widget.isSelected;
+              });
+            },
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text(widget.name,
+                style: TextStyle(fontSize: 17),
+                ),
+                Container(
+                  height: 30,
+                  width: 30,
+                  child: Padding(
+                      padding: EdgeInsets.only(left: 10),
+                      child: widget.isSelected ? Icon(Icons.add_task):null
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ),
+      ],
     );
   }
 }

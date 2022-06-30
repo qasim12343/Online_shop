@@ -19,26 +19,26 @@ class FilterModalBottomSheet extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-              Container(
-                alignment: Alignment.centerLeft,
-                width: 100,
-                padding: EdgeInsets.all(4),
-                child: InkWell(
-                  child: Icon(Icons.close),
-                  onTap: (){
-                    Navigator.pop(context);
-                  },
+                Container(
+                  alignment: Alignment.centerLeft,
+                  width: 100,
+                  padding: EdgeInsets.all(4),
+                  child: InkWell(
+                    child: Icon(Icons.close),
+                    onTap: (){
+                      Navigator.pop(context);
+                    },
+                  ),
                 ),
-              ),
-              Text('Filter',textAlign: TextAlign.center,),
-              Container(
-                width: 100,
-                alignment: Alignment.centerRight,
-                child: InkWell(
-                  child: Text('Reset',textAlign: TextAlign.center,
-                  style: TextStyle(color: Colors.blue),),
-                  onTap: (){
-                  },
+                Text('Filter',textAlign: TextAlign.center,),
+                Container(
+                  width: 100,
+                  alignment: Alignment.centerRight,
+                  child: InkWell(
+                    child: Text('Reset',textAlign: TextAlign.center,
+                    style: TextStyle(color: Colors.blue),),
+                    onTap: (){
+                    },
                   ),
                 )
               ]

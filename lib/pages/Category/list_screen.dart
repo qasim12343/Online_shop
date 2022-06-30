@@ -119,9 +119,9 @@ class _GridItemState extends State<GridItem> {
                           onPressed: () {
                             setState(() {
                               widget.item.isFavorite = !widget.item.isFavorite;
-                              Utilities().send("Users");
+
+                              addRemove();
                             });
-                            addRemove();
                           },)
                     ),
                   ),
@@ -183,5 +183,8 @@ class _GridItemState extends State<GridItem> {
   }
   void addRemove(){
     widget.item.isFavorite ? Data.currentUser.favorites!.add(widget.item): Data.currentUser.favorites!.remove(widget.item);
+    int index = Data.users.indexOf(Data.currentUser);
+    Data.users[index] = Data.currentUser;
+    Utilities().send("Users");
   }
 }
